@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $vendors = $block->getVendors() ; ?>
+<?php $currentVendor = $block->getCurrentVendor(); ?>
+<?php if (count($vendors) > 1) : ?>
+<div class="switcher cart switcher-cart" id="switcher-cart">
+    <strong class="label switcher-label"><span><?= __('Select Shopping Cart') ?></span></strong>
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger" id="switcher-cart-trigger">
+            <strong><span><?= $block->escapeHtml(__('%1 Shopping Cart', $currentVendor->getName())) ?></span></strong>
+        </div>
+        <ul class="dropdown switcher-dropdown" data-mage-init='{"dropdownDialog":{
+            "appendTo":"#switcher-cart > .options",
+            "triggerTarget":"#switcher-cart-trigger",
+            "closeOnMouseLeave": false,
+            "triggerClass":"active",
+            "parentClass":"active",
+            "buttons":null}}'>
+            <?php foreach ($vendors as $vendor) : ?>
+            <?php if ($vendor->getId() != $currentVendor->getId()) : ?>
+            <li class="switcher-option">
+                <a href="<?= $block->getCartUrl($vendor->getId()) ?>"><?= $block->escapeHtml(__('%1 Shopping Cart', $vendor->getName())) ?></a>
+            </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

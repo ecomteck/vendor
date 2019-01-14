@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page>
+    <body>
+        <referenceContainer name="page.main.title">
+            <block class="Magento\Sales\Block\Order\Info" name="order.vendor" template="Ecombricks_VendorSales::order/vendor.phtml" before="order.date" />
+        </referenceContainer>
+    </body>
+</page>

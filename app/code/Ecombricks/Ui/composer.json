@@ -1,0 +1,21 @@
+{
+    "name": "ecombricks/module-ui",
+    "description": "N/A",
+    "require": {
+        "magento/framework": "101.0.*",
+        "magento/module-ui": "101.0.*"
+    },
+    "type": "magento2-module",
+    "version": "102.1.4",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ecombricks\\Ui\\": ""
+        }
+    }
+}

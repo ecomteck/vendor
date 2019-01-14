@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\Url">
+        <property name="vendorParameterActionPathPatterns" type="array">
+            <item name="multishippingCheckout">#^multishipping/checkout#</item>
+        </property>
+    </type>
+    <type name="Magento\Multishipping\Model\Checkout\Type\Multishipping">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorMultishipping\Model\Checkout\Type\Multishipping\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Multishipping\Controller\Checkout">
+        <property name="vendorCheckoutSession" type="object">Magento\Checkout\Model\Session</property>
+        <property name="vendorMultishippingCheckout" type="object">Magento\Multishipping\Model\Checkout\Type\Multishipping</property>
+    </type>
+    <type name="Magento\Multishipping\Controller\Checkout\Index">
+        <trait type="Ecombricks\VendorMultishipping\Controller\Checkout\Index\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Multishipping\Controller\Checkout\Address">
+        <property name="vendorCheckoutSession" type="object">Magento\Checkout\Model\Session</property>
+        <property name="vendorMultishippingCheckout" type="object">Magento\Multishipping\Model\Checkout\Type\Multishipping</property>
+    </type>
+</config>

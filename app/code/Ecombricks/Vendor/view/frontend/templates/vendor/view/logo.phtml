@@ -1,0 +1,8 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $vendorNameStripped = $block->stripTags($block->getVendorName(), null, true) ?>
+<img class="image" src="<?= $block->getLogoUrl() ?>" width="<?= $block->getLogoWidth() ?>" height="<?= $block->getLogoHeight() ?>" alt="<?= $vendorNameStripped ?>" />

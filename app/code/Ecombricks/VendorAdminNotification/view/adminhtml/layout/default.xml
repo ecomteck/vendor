@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="notifications">
+            <uiComponent name="notification_area" aclResource="Magento_AdminNotification::show_list" />
+            <!-- <referenceBlock name="unread_system_messages" remove="true" /> -->
+            <!-- <referenceBlock name="notification_window" remove="true" /> -->
+        </referenceContainer>
+        <referenceContainer name="header">
+            <!-- <referenceBlock name="notification.messages" remove="true" /> -->
+        </referenceContainer>
+    </body>
+</page>

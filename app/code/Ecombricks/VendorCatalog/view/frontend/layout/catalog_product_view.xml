@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page>
+    <body>
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.vendor" template="Ecombricks_VendorCatalog::product/view/vendor.phtml" after="product.info.price" />
+            </referenceContainer>
+        </referenceContainer>
+        <referenceContainer name="content.aside">
+            <block class="Ecombricks\VendorCatalog\Block\Product\ProductList\Vendor" name="catalog.product.vendor.products" template="Ecombricks_VendorCatalog::product/list/vendor.phtml">
+                <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="vendor.products.product.addto" as="addto">
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                           name="vendor.products.product.addto.compare" as="compare"
+                           template="Magento_Catalog::product/list/addto/compare.phtml" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

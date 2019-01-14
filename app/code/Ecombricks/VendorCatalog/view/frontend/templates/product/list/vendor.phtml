@@ -1,0 +1,78 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $product = $block->getProduct() ?>
+<?php $vendor = $product->getVendor() ?>
+<?php $items = $block->getItems() ?>
+<?php $class = 'vendor-products' ?>
+<?php $image = 'related_products_list' ?>
+<?php $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW ?>
+
+<?php if (count($items)) : ?>
+<div class="block <?= $class ?>">
+<div class="block-title title">
+<strong id="block-<?= $class ?>-heading" role="heading" aria-level="2">
+    <?= __('Vendor Products') ?>
+</strong>
+</div>
+<div class="block-content content" aria-labelledby="block-<?= $class ?>-heading">
+    <div class="products wrapper grid products-grid products-vendor-products">
+    <ol class="products list items product-items">
+        <?php $iterator = 1 ?>
+        <?php foreach ($items as $item) : ?>
+        <?= ($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+        <div class="product-item-info">
+        <a href="<?= $block->getProductUrl($item) ?>" class="product photo product-item-photo">
+            <?= $block->getImage($item, $image)->toHtml() ?>
+        </a>
+        <div class="product details product-item-details">
+            <strong class="product name product-item-name"><a class="product-item-link" title="<?= $block->escapeHtml($item->getName()) ?>" href="<?= $block->getProductUrl($item) ?>">
+                <?= $block->escapeHtml($item->getName()) ?></a>
+            </strong>
+            <?= $block->getProductPrice($item) ?>
+            <?php if ($templateType) : ?>
+            <?= $block->getReviewsSummaryHtml($item, $templateType) ?>
+            <?php endif ?>
+            <div class="product actions product-item-actions">
+                <div class="actions-primary">
+                <?php if ($item->isSaleable()) : ?>
+                    <?php if ($item->getTypeInstance()->hasRequiredOptions($item)) : ?>
+                        <button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= $block->getAddToCartUrl($item) ?>"}}' type="button" title="<?= __('Add to Cart') ?>">
+                            <span><?= __('Add to Cart') ?></span>
+                        </button>
+                    <?php else: ?>
+                        <?php $postDataHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class) ?>
+                        <?php $postData = $postDataHelper->getPostData($block->getAddToCartUrl($item), ['product' => $item->getEntityId()]) ?>
+                        <button class="action tocart primary"
+                                data-post='<?= $postData ?>'
+                                type="button" title="<?= __('Add to Cart') ?>">
+                            <span><?= __('Add to Cart') ?></span>
+                        </button>
+                    <?php endif ?>
+                <?php else: ?>
+                    <?php if ($item->getIsSalable()) : ?>
+                    <div class="stock available"><span><?= __('In stock') ?></span></div>
+                    <?php else: ?>
+                    <div class="stock unavailable"><span><?= __('Out of stock') ?></span></div>
+                    <?php endif ?>
+                <?php endif ?>
+                </div>
+                <div class="secondary-addto-links actions-secondary" data-role="add-to-links">
+                    <?php $addToBlock = $block->getChildBlock('addto') ?>
+                    <?php if ($addToBlock) : ?>
+                    <?= $addToBlock->setProduct($item)->getChildHtml() ?>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+        </div>
+        <?= ($iterator == count($items) + 1) ? '</li>' : '' ?>
+        <?php endforeach ?>
+    </ol>
+    </div>
+</div>
+</div>
+<?php endif ?>

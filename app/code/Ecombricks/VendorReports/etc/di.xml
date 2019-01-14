@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Reports\Model\ResourceModel\Event">
+        <plugin name="ecombricksVendorReportsPluginModelResourceModelEvent" type="Ecombricks\VendorReports\Plugin\Model\ResourceModel\Event" sortOrder="-100" />
+    </type>
+    <type name="Magento\Reports\Model\ResourceModel\Order\CollectionFactory">
+        <plugin name="ecombricksVendorReportsPluginModelResourceModelOrderCollectionFactory" type="Ecombricks\VendorReports\Plugin\Model\ResourceModel\Order\CollectionFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Reports\Model\ResourceModel\Product\CollectionFactory">
+        <plugin name="ecombricksVendorReportsPluginModelResourceModelProductCollectionFactory" type="Ecombricks\VendorReports\Plugin\Model\ResourceModel\Product\CollectionFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Reports\Model\ResourceModel\Customer\Collection">
+        <plugin name="ecombricksVendorReportsPluginModelResourceModelCustomerCollection" type="Ecombricks\VendorReports\Plugin\Model\ResourceModel\Customer\Collection" sortOrder="-100" />
+    </type>
+</config>

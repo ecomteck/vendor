@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\Url">
+        <property name="vendorParameterActionPathPatterns" type="array">
+            <item name="checkout">#^checkout#</item>
+        </property>
+    </type>
+    <type name="Magento\Checkout\Model\Session">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorCheckout\Model\Session\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Checkout\Model\Cart">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorCheckout\Model\Cart\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Checkout\Model\Type\Onepage">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorCheckout\Model\Type\Onepage\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Checkout\Model\Type\OnepageFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\Sidebar">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorCheckout\Model\CompositeConfigProvider\VendorTrait" sortOrder="-90" />
+        <property name="vendorConfigProviders" type="copy">configProviders</property>
+    </type>
+    <type name="Magento\Checkout\CustomerData\Cart">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorCheckout\CustomerData\Cart\VendorTrait" sortOrder="-90" />
+        <property name="vendorUrlBuilder" type="object">Magento\Framework\UrlInterface</property>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\AbstractCart">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\View\Element\AbstractBlock\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <trait type="Ecombricks\VendorCheckout\Controller\Cart\Add\VendorTrait" sortOrder="-90" />
+        <property name="vendorStoreManager" type="object">Magento\Store\Model\StoreManagerInterface</property>
+        <property name="vendorProductRepository" type="object">Magento\Catalog\Api\ProductRepositoryInterface</property>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Crosssell">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\View\Element\AbstractBlock\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Checkout\Block\Onepage">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\View\Element\AbstractBlock\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Checkout\Controller\Cart\Index">
+        <trait type="Ecombricks\VendorCheckout\Controller\Cart\Index\VendorTrait" sortOrder="-80" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Checkout\Controller\Onepage">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorCheckout\Controller\Onepage\VendorTrait" sortOrder="-90" />
+        <property name="vendorOnepageCheckout" type="object">Magento\Checkout\Model\Type\Onepage</property>
+        <property name="vendorCheckoutSession" type="object">Magento\Checkout\Model\Session</property>
+    </type>
+    <type name="Magento\Checkout\Controller\Onepage\SaveOrder">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <property name="vendorAgreementsValidator" type="object">Magento\CheckoutAgreements\Model\AgreementsValidator</property>
+    </type>
+    <type name="Magento\Checkout\Observer\LoadCustomerQuoteObserver">
+        <trait type="Ecombricks\VendorCheckout\Observer\LoadCustomerQuoteObserver\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Helper\Cart">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Helper\Data">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    
+    <type name="Magento\Checkout\Model\GuestPaymentInformationManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Checkout\Model\GuestShippingInformationManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Checkout\Model\GuestTotalsInformationManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Checkout\Model\TotalsInformationManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    
+    <type name="Ecombricks\VendorCheckout\Model\PaymentInformationManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorCheckout\Model\ShippingInformationManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorCheckout\Model\TotalsInformationManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    
+</config>

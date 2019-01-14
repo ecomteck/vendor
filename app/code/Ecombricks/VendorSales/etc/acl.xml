@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorAuthorization:etc/vendor_acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin" enabledForVendor="true">
+                <resource id="Magento_Sales::sales" enabledForVendor="true">
+                    <resource id="Magento_Sales::sales_operation" enabledForVendor="true">
+                        <resource id="Magento_Sales::sales_order" enabledForVendor="true">
+                            <resource id="Magento_Sales::actions" enabledForVendor="true">
+                                <resource id="Magento_Sales::create" enabledForVendor="true" />
+                                <resource id="Magento_Sales::actions_view" enabledForVendor="true" />
+                                <resource id="Magento_Sales::email" enabledForVendor="true" />
+                                <resource id="Magento_Sales::reorder" enabledForVendor="true" />
+                                <resource id="Magento_Sales::actions_edit" enabledForVendor="true" />
+                                <resource id="Magento_Sales::cancel" enabledForVendor="true" />
+                                <resource id="Magento_Sales::review_payment" enabledForVendor="true" />
+                                <resource id="Magento_Sales::capture" enabledForVendor="true" />
+                                <resource id="Magento_Sales::invoice" enabledForVendor="true" />
+                                <resource id="Magento_Sales::creditmemo" enabledForVendor="true" />
+                                <resource id="Magento_Sales::hold" enabledForVendor="true" />
+                                <resource id="Magento_Sales::unhold" enabledForVendor="true" />
+                                <resource id="Magento_Sales::ship" enabledForVendor="true" />
+                                <resource id="Magento_Sales::comment" enabledForVendor="true" />
+                                <resource id="Magento_Sales::emails" enabledForVendor="true" />
+                            </resource>
+                        </resource>
+                        <resource id="Magento_Sales::sales_invoice" enabledForVendor="true" />
+                        <resource id="Magento_Sales::shipment" enabledForVendor="true" />
+                        <resource id="Magento_Sales::sales_creditmemo" enabledForVendor="true" />
+                        <resource id="Magento_Sales::transactions" enabledForVendor="true">
+                            <resource id="Magento_Sales::transactions_fetch" enabledForVendor="true" />
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores" enabledForVendor="true">
+                    <resource id="Magento_Backend::stores_settings" enabledForVendor="true">
+                        <resource id="Magento_Config::config" enabledForVendor="true">
+                            <resource id="Magento_Sales::config_sales" enabledForVendor="true" />
+                            <resource id="Magento_Sales::sales_email" enabledForVendor="true" />
+                            <resource id="Magento_Sales::sales_pdf" enabledForVendor="true" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

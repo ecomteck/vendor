@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Framework\Interception\Code\Generator\Interceptor" type="Ecombricks\Interception\Framework\Interception\Code\Generator\Interceptor" />
+    <preference for="Magento\Framework\Interception\Config\Config" type="Ecombricks\Interception\Framework\Interception\Config\Config" />
+    <preference for="Magento\Framework\ObjectManager\Code\Generator\Proxy" type="Ecombricks\Interception\Framework\ObjectManager\Code\Generator\Proxy" />
+    <preference for="Magento\Framework\Code\Reader\ClassReader" type="Ecombricks\Interception\Framework\Code\Reader\ClassReader" />
+    <preference for="Magento\Setup\Module\Di\Code\Generator\Interceptor" type="Ecombricks\Interception\Setup\Module\Di\Code\Generator\Interceptor" />
+    <preference for="Magento\Setup\Module\Di\Code\Generator\InterceptionConfigurationBuilder" type="Ecombricks\Interception\Setup\Module\Di\Code\Generator\InterceptionConfigurationBuilder" />
+</config>

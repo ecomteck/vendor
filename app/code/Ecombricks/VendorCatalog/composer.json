@@ -1,0 +1,28 @@
+{
+    "name": "ecombricks/module-vendor-catalog",
+    "description": "N/A",
+    "require": {
+        "magento/framework": "101.0.*",
+        "ecombricks/module-framework": "102.1.*",
+        "ecombricks/module-interception": "102.1.*",
+        "ecombricks/module-vendor-common": "102.1.*",
+        "ecombricks/module-vendor-authorization": "102.1.*",
+        "ecombricks/module-ui": "102.1.*",
+        "magento/module-catalog": "102.0.*",
+        "magento/module-eav": "101.0.*",
+        "magento/module-ui": "101.0.*"
+    },
+    "type": "magento2-module",
+    "version": "102.1.5",
+    "license": [
+        "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ecombricks\\VendorCatalog\\": ""
+        }
+    }
+}

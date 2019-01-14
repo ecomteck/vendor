@@ -1,0 +1,25 @@
+{
+    "name": "ecombricks/module-vendor-bundle",
+    "description": "N/A",
+    "require": {
+        "magento/framework": "101.0.*",
+        "ecombricks/module-framework": "102.1.*",
+        "ecombricks/module-interception": "102.1.*",
+        "ecombricks/module-vendor-common": "102.1.*",
+        "ecombricks/module-vendor-catalog": "102.1.*",
+        "magento/module-bundle": "100.2.*"
+    },
+    "type": "magento2-module",
+    "version": "102.1.4",
+    "license": [
+        "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ecombricks\\VendorBundle\\": ""
+        }
+    }
+}

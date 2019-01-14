@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\Url">
+        <property name="vendorParameterActionPathPatterns" type="array">
+            <item name="wishlist">#^wishlist#</item>
+        </property>
+    </type>
+    <type name="Magento\Wishlist\Model\Wishlist">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Wishlist\Model\WishlistFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Wishlist\Model\ResourceModel\Item\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_catalog_product_entity</property>
+        <property name="mainTableEntityIdFieldName" type="string">product_id</property>
+        <property name="vendorTableEntityIdFieldName" type="string">entity_id</property>
+    </type>
+    <type name="Magento\Wishlist\Model\ResourceModel\Item\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+</config>

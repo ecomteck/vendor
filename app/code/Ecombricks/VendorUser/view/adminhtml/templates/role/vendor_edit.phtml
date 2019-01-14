@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?= $block->getChildHtml() ?>
+<fieldset class="fieldset form-inline entry-edit">
+    <legend class="legend">
+        <span><?= __('Roles Resources') ?></span>
+    </legend><br />
+    <div class="field" data-role="tree-vendor-resources-container">
+        <label class="label"><span><?= __('Resources') ?></span></label>
+        <div class="control">
+            <div class="tree x-tree" data-role="vendor-resource-tree" data-mage-init='<?php
+            echo $block->escapeHtml($this->helper(\Magento\Framework\Json\Helper\Data::class)->jsonEncode([
+                'userRoleVendorResourcesTree' => [
+                    'treeInitData' => $block->getTree(),
+                    'treeInitSelectedData' => $block->getSelectedResources()
+                ]
+            ]));
+            ?>'></div>
+        </div>
+    </div>
+</fieldset>

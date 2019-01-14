@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $order = $block->getOrder() ?>
+<?php $vendor = $order->getVendor() ?>
+<div class="order-vendor">
+<?php if ($vendor) : ?>
+<strong><?= __('Vendor:') ?></strong> <a href="<?= $vendor->getUrl() ?>" class="vendor"><?= $block->escapeHtml($vendor->getName()) ?></a>
+<?php endif ?>
+</div>

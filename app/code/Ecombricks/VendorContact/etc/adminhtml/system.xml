@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorConfig:etc/vendor_system_file.xsd">
+    <system>
+        <tab id="general" enabledForVendor="true">
+            <label>General</label>
+        </tab>
+        <section id="contact" enabledForVendor="true">
+            <group id="contact" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+            </group>
+            <group id="email" enabledForVendor="true">
+                <field id="recipient_email" enabledForVendor="true"/>
+                <field id="email_template" enabledForVendor="true"/>
+            </group>
+        </section>
+    </system>
+</config>

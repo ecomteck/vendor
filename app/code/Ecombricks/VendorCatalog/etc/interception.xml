@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Catalog\Model\Product\Link">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\Product\Type">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ProductFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-100" />
+        <property name="vendorTable" type="string">ecombricks_vendor_catalog_product_entity</property>
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <trait type="Ecombricks\VendorCatalog\Model\ResourceModel\Product\Collection\VendorTrait" sortOrder="-80" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_catalog_product_entity</property>
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Link\Product\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\Layer\FilterList">
+        <trait type="Ecombricks\VendorCatalog\Model\Layer\FilterList\VendorTrait" />
+    </type>
+    <type name="Magento\Catalog\Model\Product\Compare\ListCompare">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\Product\Compare\ListCompareFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Compare\Item\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\Form\ProductDataProvider">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <property name="pool" type="copy">pool</property>
+    </type>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Builder">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <property name="vendorResultPageFactory" type="object">Magento\Framework\View\Result\PageFactory</property>
+        <property name="vendorUrlBuilder" type="object">Magento\Framework\UrlInterface</property>
+        <property name="vendorBackendUrl" type="object">Magento\Backend\Model\UrlInterface</property>
+    </type>
+</config>

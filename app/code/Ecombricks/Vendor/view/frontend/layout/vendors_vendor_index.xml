@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Ecombricks\Vendor\Block\Vendor\VendorList" name="vendor-list" template="Ecombricks_Vendor::vendor/list.phtml">
+                <container name="vendor.list.additional" as="additional"/>
+                <block class="Ecombricks\Vendor\Block\Vendor\VendorList\Toolbar" name="vendor_list_toolbar" template="Ecombricks_Vendor::vendor/list/toolbar.phtml">
+                    <block class="Magento\Theme\Block\Html\Pager" name="vendor_list_toolbar_pager"/>
+                </block>
+                <action method="setToolbarBlockName">
+                    <argument name="name" xsi:type="string">vendor_list_toolbar</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

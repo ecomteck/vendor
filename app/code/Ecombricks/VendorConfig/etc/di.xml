@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Config\Model\ResourceModel\Config\Data" type="Ecombricks\VendorConfig\Model\ResourceModel\Config\Data" />
+    <preference for="Magento\Config\Model\Config\Structure\Element\Group\Proxy" type="Ecombricks\VendorConfig\Model\Config\Structure\Element\Group\Proxy" />
+    <type name="Magento\Framework\App\Config">
+        <plugin name="ecombricksVendorConfigPluginFrameworkAppConfig" type="Ecombricks\VendorConfig\Plugin\Framework\App\Config" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\App\Config\ValueFactory">
+        <plugin name="ecombricksVendorConfigPluginFrameworkAppConfigValueFactory" type="Ecombricks\VendorConfig\Plugin\Framework\App\Config\ValueFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\App\Config\Source\RuntimeConfigSource">
+        <plugin name="ecombricksVendorConfigPluginAppConfigSourceRuntimeConfigSource" type="Ecombricks\VendorConfig\Plugin\App\Config\Source\RuntimeConfigSource" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\SchemaLocator">
+        <plugin name="ecombricksVendorConfigPluginModelConfigSchemaLocator" type="Ecombricks\VendorConfig\Plugin\Model\Config\SchemaLocator" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Factory">
+        <plugin name="ecombricksVendorConfigPluginModelConfigFactory" type="Ecombricks\VendorConfig\Plugin\Model\Config\Factory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure\Element\FlyweightFactory">
+        <plugin name="ecombricksVendorConfigPluginModelConfigStructureElementFlyweightFactory" type="Ecombricks\VendorConfig\Plugin\Model\Config\Structure\Element\FlyweightFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure\AbstractElement">
+        <plugin name="ecombricksVendorConfigPluginModelConfigStructureAbstractElement" type="Ecombricks\VendorConfig\Plugin\Model\Config\Structure\AbstractElement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure\Element\Field">
+        <plugin name="ecombricksVendorConfigPluginModelConfigStructureElementField" type="Ecombricks\VendorConfig\Plugin\Model\Config\Structure\Element\Field" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\BackendFactory">
+        <plugin name="ecombricksVendorConfigPluginModelConfigBackendFactory" type="Ecombricks\VendorConfig\Plugin\Model\Config\BackendFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\SourceFactory">
+        <plugin name="ecombricksVendorConfigPluginModelConfigSourceFactory" type="Ecombricks\VendorConfig\Plugin\Model\Config\SourceFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Block\System\Config\Form\Field">
+        <plugin name="ecombricksVendorConfigPluginBlockSystemConfigFormField" type="Ecombricks\VendorConfig\Plugin\Block\System\Config\Form\Field" sortOrder="-100" />
+    </type>
+    <virtualType name="Ecombricks\VendorConfig\Observer\Framework\Model\AbstractModel\AfterLoad" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\AfterLoad\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="configValue" xsi:type="string">Magento\Framework\App\Config\Value</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorConfig\Observer\Framework\Model\AbstractModel\BeforeDelete" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\BeforeDelete\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="configValue" xsi:type="string">Magento\Framework\App\Config\Value</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorConfig\Observer\Framework\Model\AbstractModel\BeforeSave" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\BeforeSave\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="configValue" xsi:type="string">Magento\Framework\App\Config\Value</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorConfig\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\BeforeLoad" type="Ecombricks\Vendor\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\BeforeLoad\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="configValue" xsi:type="string">Magento\Config\Model\ResourceModel\Config\Data\Collection</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,82 @@
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+    .page-main {
+        .switcher-cart {
+            .options {
+                .lib-dropdown(
+                    @_dropdown-actions-padding: 0,
+                    @_dropdown-list-item-padding: 0,
+                    @_dropdown-toggle-icon-content: @icon-down,
+                    @_dropdown-toggle-active-icon-content: @icon-up,
+                    @_icon-font-text-hide: true,
+                    @_icon-font-size: @font-size__s,
+                    @_icon-font-line-height: 32px,
+                    @_dropdown-list-min-width: 260px
+                );
+                ul.dropdown {
+                    a {
+                        display: block;
+                        padding: @indent__s;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            li {
+                font-size: @font-size__base;
+                margin: 0;
+            }
+            .label {
+                &:extend(.abs-visually-hidden all);
+            }
+            strong {
+                font-size: @font-size__l;
+                font-weight: @font-weight__bold;
+                padding-right: @indent__s;
+                line-height: 32px;
+            }
+        }
+    }
+    .block-minicart {
+        .block-content {
+            padding-top: 15px;
+        }
+    }
+    .minicart-items-wrapper {
+        .vendor-carts {
+            .lib-list-reset-styles();
+            .vendor-cart {
+                padding-bottom: 15px;
+                .vendor-cart-title {
+                    strong {
+                        font-size: @font-size__l;
+                        line-height: 38px;
+                    }
+                }
+            }
+        }
+    }
+    .page-title-wrapper {
+        .order-vendor {
+            margin: 0 0 @indent__base;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-main {
+        .switcher-cart {
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="robotsResultPage" type="null" />
+    <virtualType name="robotsResultPageFactory" type="null" />
+    <type name="Magento\Robots\Controller\Index\Index">
+        <arguments>
+            <argument name="resultPageFactory" xsi:type="object">Ecombricks\Vendor\Framework\View\Result\PageFactory\Robots</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,89 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $vendors = $block->getVendors() ?>
+<?php if (!empty($vendors)) : ?>
+<div class="store-switcher vendor-switcher store-view vendor">
+    <span class="vendor-switcher-label store-switcher-label"><?= __('Vendor:') ?></span>
+    <div class="actions dropdown closable">
+        <input type="hidden" name="vendor_switcher" id="vendor_switcher" data-role="vendor"
+               value="<?= $block->escapeHtml($block->getVendorId()) ?>"
+               onchange="switchVendor(this);"<?= $block->getUiId()?> />
+        <button type="button" class="admin__action-dropdown" data-mage-init='{"dropdown":{}}' data-toggle="dropdown" aria-haspopup="true" id="vendor-change-button">
+            <?= $block->getCurrentOptionLabel() ?>
+        </button>
+        <ul class="dropdown-menu" data-role="vendor-list">
+            <?php if ($block->isDefaultOptionAvailable()) : ?>
+            <li class="store-switcher-all vendor-switcher-all <?php if (!$block->getVendorId()) : ?>current<?php endif ?>">
+                <?php if ($block->getVendorId()) : ?>
+                <a data-value="" href="#">
+                    <?= $block->escapeHtml($block->getDefaultOptionLabel()) ?>
+                </a>
+                <?php else : ?>
+                <span><?= $block->escapeHtml($block->getDefaultOptionLabel()) ?></span>
+                <?php endif ?>
+            </li>
+            <?php endif; ?>
+            <?php foreach ($vendors as $vendor) : ?>
+            <li class="store-switcher-website vendor-switcher-vendor <?php if ($block->getVendorId() == $vendor->getVendorId()) : ?>current<?php endif ?>">
+                <?php if ($block->getVendorId() != $vendor->getVendorId()) : ?>
+                <a data-value="<?= $block->escapeHtml($vendor->getVendorId()) ?>" href="#">
+                    <?= $block->escapeHtml($vendor->getName()) ?>
+                </a>
+                <?php else : ?>
+                <span><?= $block->escapeHtml($vendor->getName()) ?></span>
+                <?php endif ?>
+            </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+</div>
+
+<script>
+require([
+    'jquery',
+    'Magento_Ui/js/modal/confirm'
+], function(jQuery, confirm){
+    
+    (function($) {
+        $('[data-role=vendor-list]').on('click', '[data-value]', function(event) {
+            var vendorId = $(event.target).data('value');
+            var vendor = $('[data-role=vendor]');
+            event.preventDefault();
+            if (!vendor.val() || (vendorId !== vendor.val())) {
+                vendor.val(vendorId).trigger('change');
+            }
+        });
+    })(jQuery);
+    
+    function switchVendor(vendorElement) {
+        var vendor = jQuery(vendorElement);
+        <?php if ($block->getUseConfirm()) : ?>
+        confirm({
+            content: "<?= __('Please confirm vendor switching. All data that hasn\'t been saved will be lost.') ?>",
+            actions: {
+                confirm: function() {
+                    reload();
+                },
+                cancel: function() {
+                    vendor.val('<?= $block->escapeHtml($block->getVendorId()) ?>');
+                }
+            }
+        });
+        <?php else : ?>
+        reload();
+        <?php endif ?>
+        
+        function reload() {
+            setLocation('<?= $block->getSwitchUrl() ?>vendor/' + vendor.val());
+        }
+    }
+    
+    window.switchVendor = switchVendor;
+    
+});
+</script>
+<?php endif ?>

@@ -1,0 +1,58 @@
+"%1 Item","%1 Item"
+"%1 Items","%1 Items"
+"-- Select vendor --","-- Select vendor --"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Are you sure you wan't to delete a ""${ $.$data.name }"" vendor?","Are you sure you wan't to delete a ""${ $.$data.name }"" vendor?"
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Back,Back
+"Can't delete the default vendor.","Can't delete the default vendor."
+Code,Code
+Content,Content
+Delete,Delete
+"Delete ""${ $.$data.name }""","Delete ""${ $.$data.name }"""
+"Delete Vendor","Delete Vendor"
+Description,Description
+Disabled,Disabled
+Edit,Edit
+"Edit Vendor","Edit Vendor"
+"Enable Vendor","Enable Vendor"
+Enabled,Enabled
+"Image can not be saved.","Image can not be saved."
+"Invalid ID.","Invalid ID."
+"Invalid image file type.","Invalid image file type."
+"Invalid vendor ID.","Invalid vendor ID."
+"Items %1-%2 of %3","Items %1-%2 of %3"
+"Learn More","Learn More"
+Logo,Logo
+"Max image size %1M","Max image size %1M"
+"Meta Description","Meta Description"
+"Meta Keywords","Meta Keywords"
+"Meta Title","Meta Title"
+Name,Name
+"New Vendor","New Vendor"
+"No vendor found.","No vendor found."
+"Please correct the data sent.","Please correct the data sent."
+Reset,Reset
+"Save Vendor","Save Vendor"
+"Save and Continue Edit","Save and Continue Edit"
+"Search Engine Optimization","Search Engine Optimization"
+"Set Ascending Direction","Set Ascending Direction"
+"Set Descending Direction","Set Descending Direction"
+"Short Description","Short Description"
+Show,Show
+"Something is wrong with the file upload settings.","Something is wrong with the file upload settings."
+"Something went wrong while deleting the vendor (ID = %1).","Something went wrong while deleting the vendor (ID = %1)."
+"Something went wrong while saving the vendor.","Something went wrong while saving the vendor."
+"Sort By","Sort By"
+"The vendor has been deleted.","The vendor has been deleted."
+"The vendor no longer exists.","The vendor no longer exists."
+"Uploaded image is not valid","Uploaded image is not valid"
+"Vendor not found.","Vendor not found."
+"Vendor was not registered","Vendor was not registered"
+Vendors,Vendors
+"Vendors Section","Vendors Section"
+"We can't find a vendor to delete.","We can't find a vendor to delete."
+"You saved the vendor.","You saved the vendor."
+"is enabled","is enabled"
+"per page","per page"
+vendor,vendor

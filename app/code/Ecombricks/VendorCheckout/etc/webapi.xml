@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/carts/mine/shipping-information/:vendorId" method="POST">
+        <service class="Ecombricks\VendorCheckout\Api\ShippingInformationManagementInterface" method="vendorSaveAddressInformation" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/totals-information/:vendorId" method="POST">
+        <service class="Ecombricks\VendorCheckout\Api\TotalsInformationManagementInterface" method="vendorCalculate" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/payment-information/:vendorId" method="POST">
+        <service class="Ecombricks\VendorCheckout\Api\PaymentInformationManagementInterface" method="vendorSavePaymentInformationAndPlaceOrder" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/payment-information/:vendorId" method="GET">
+        <service class="Ecombricks\VendorCheckout\Api\PaymentInformationManagementInterface" method="vendorGetPaymentInformation" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/set-payment-information/:vendorId" method="POST">
+        <service class="Ecombricks\VendorCheckout\Api\PaymentInformationManagementInterface" method="vendorSavePaymentInformation" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+</routes>

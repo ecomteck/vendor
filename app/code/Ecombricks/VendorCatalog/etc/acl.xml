@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorAuthorization:etc/vendor_acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin" enabledForVendor="true">
+                <resource id="Magento_Catalog::catalog" enabledForVendor="true">
+                    <resource id="Magento_Catalog::catalog_inventory" enabledForVendor="true">
+                        <resource id="Magento_Catalog::products" enabledForVendor="true"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

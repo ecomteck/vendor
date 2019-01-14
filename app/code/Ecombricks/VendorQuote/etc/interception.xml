@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Quote\Model\Quote">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <trait type="Ecombricks\VendorQuote\Model\Quote\VendorTrait" sortOrder="-80" />
+        <property name="vendorAddressRateCollector" type="object">Magento\Quote\Model\Quote\Address\RateCollectorInterfaceFactory</property>
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Quote\Model\QuoteFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\ResourceModel\Quote">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <trait type="Ecombricks\VendorQuote\Model\ResourceModel\Quote\VendorTrait" sortOrder="-80" />
+        <property name="vendorTable" type="string">ecombricks_vendor_quote</property>
+    </type>
+    <type name="Magento\Quote\Model\ResourceModel\Quote\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_quote</property>
+    </type>
+    <type name="Magento\Quote\Model\ResourceModel\Quote\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\RateCollectorInterfaceFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Observer\Backend\CustomerQuoteObserver">
+        <trait type="Ecombricks\VendorQuote\Observer\Backend\CustomerQuoteObserver\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\Total\AbstractTotal">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\Total\Collector">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\Quote\Address\Total\Collector\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\Total\CollectorFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\TotalsCollectorList">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\TotalsCollector">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\TotalsReader">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    
+    <type name="Magento\Quote\Model\GuestCart\GuestBillingAddressManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartItemRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartTotalManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartTotalRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCouponManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestPaymentMethodManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestShippingAddressManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestShippingMethodManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    
+    <type name="Magento\Quote\Model\BillingAddressManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Item\Repository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\QuoteRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\QuoteRepository\VendorTrait" sortOrder="-90" />
+        <property name="vendorQuoteResource" type="object">Magento\Quote\Model\ResourceModel\Quote</property>
+        <property name="vendorLoadHandler" type="object">Magento\Quote\Model\QuoteRepository\LoadHandler\Proxy</property>
+    </type>
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <trait type="Ecombricks\VendorQuote\Model\QuoteManagement\VendorTrait" sortOrder="-80" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\Cart\CartTotalManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\Cart\CartTotalRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\CouponManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\PaymentMethodManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\ShippingAddressManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\Quote\Model\ShippingMethodManagement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    
+    <type name="Ecombricks\VendorQuote\Model\BillingAddressManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\Quote\Item\Repository">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\QuoteManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface\Proxy</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\QuoteRepository">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\Cart\CartTotalManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\Cart\CartTotalRepository">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\CouponManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\PaymentMethodManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    <type name="Ecombricks\VendorQuote\Model\ShippingMethodManagement">
+        <trait type="Ecombricks\VendorQuote\Model\CartIdProviderTrait" sortOrder="-80" />
+        <property name="vendorUserContext" type="object">Magento\Authorization\Model\UserContextInterface</property>
+        <property name="vendorCartManagement" type="object">Magento\Quote\Api\CartManagementInterface</property>
+    </type>
+    
+</config>

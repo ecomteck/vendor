@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ecombricks\VendorQuote\Api\ShippingMethodManagementInterface" type="Ecombricks\VendorQuote\Model\ShippingMethodManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\ShipmentEstimationInterface" type="Ecombricks\VendorQuote\Model\ShippingMethodManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\BillingAddressManagementInterface" type="Ecombricks\VendorQuote\Model\BillingAddressManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\CartItemRepositoryInterface" type="Ecombricks\VendorQuote\Model\Quote\Item\Repository" />
+    <preference for="Ecombricks\VendorQuote\Api\CartRepositoryInterface" type="Ecombricks\VendorQuote\Model\QuoteRepository" />
+    <preference for="Ecombricks\VendorQuote\Api\PaymentMethodManagementInterface" type="Ecombricks\VendorQuote\Model\PaymentMethodManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\CouponManagementInterface" type="Ecombricks\VendorQuote\Model\CouponManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\GuestCartManagementInterface" type="Ecombricks\VendorQuote\Model\GuestCart\GuestCartManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\CartManagementInterface" type="Ecombricks\VendorQuote\Model\QuoteManagement" />
+    <preference for="Ecombricks\VendorQuote\Api\CartTotalRepositoryInterface" type="Ecombricks\VendorQuote\Model\Cart\CartTotalRepository" />
+    <preference for="Ecombricks\VendorQuote\Api\CartTotalManagementInterface" type="Ecombricks\VendorQuote\Model\Cart\CartTotalManagement" />
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="ecombricksVendorQuotePluginModelQuote" type="Ecombricks\VendorQuote\Plugin\Model\Quote" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\QuoteFactory">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteFactory" type="Ecombricks\VendorQuote\Plugin\Model\QuoteFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\ResourceModel\Quote\CollectionFactory">
+        <plugin name="ecombricksVendorQuotePluginModelResourceModelQuoteCollectionFactory" type="Ecombricks\VendorQuote\Plugin\Model\ResourceModel\Quote\CollectionFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\RateCollectorInterfaceFactory">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteAddressRateCollectorInterfaceFactory" type="Ecombricks\VendorQuote\Plugin\Model\Quote\Address\RateCollectorInterfaceFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Observer\Backend\CustomerQuoteObserver">
+        <plugin name="ecombricksVendorQuotePluginObserverBackendCustomerQuoteObserver" type="Ecombricks\VendorQuote\Plugin\Observer\Backend\CustomerQuoteObserver" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\Total\AbstractTotal">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteAddressTotalAbstractTotal" type="Ecombricks\VendorQuote\Plugin\Model\Quote\Address\Total\AbstractTotal" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\Total\CollectorFactory">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteAddressTotalCollectorFactory" type="Ecombricks\VendorQuote\Plugin\Model\Quote\Address\Total\CollectorFactory" sortOrder="-100" />
+    </type>
+    
+    <type name="Magento\Quote\Model\GuestCart\GuestBillingAddressManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestBillingAddressManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestBillingAddressManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartItemRepository">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestCartItemRepository" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestCartItemRepository" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestCartManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestCartManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartRepository">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestCartRepository" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestCartRepository" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartTotalManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestCartTotalManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestCartTotalManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCartTotalRepository">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestCartTotalRepository" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestCartTotalRepository" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestCouponManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestCouponManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestCouponManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestPaymentMethodManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestPaymentMethodManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestPaymentMethodManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestShippingAddressManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestShippingAddressManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestShippingAddressManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\GuestCart\GuestShippingMethodManagement">
+        <plugin name="ecombricksVendorQuotePluginModelGuestCartGuestShippingMethodManagement" type="Ecombricks\VendorQuote\Plugin\Model\GuestCart\GuestShippingMethodManagement" sortOrder="-100" />
+    </type>
+    
+    <type name="Magento\Quote\Model\BillingAddressManagement">
+        <plugin name="ecombricksVendorQuotePluginModelBillingAddressManagement" type="Ecombricks\VendorQuote\Plugin\Model\BillingAddressManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Item\Repository">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteItemRepository" type="Ecombricks\VendorQuote\Plugin\Model\Quote\Item\Repository" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteManagement" type="Ecombricks\VendorQuote\Plugin\Model\QuoteManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\QuoteRepository">
+        <plugin name="ecombricksVendorQuotePluginModelQuoteRepository" type="Ecombricks\VendorQuote\Plugin\Model\QuoteRepository" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Cart\CartTotalManagement">
+        <plugin name="ecombricksVendorQuotePluginModelCartCartTotalManagement" type="Ecombricks\VendorQuote\Plugin\Model\Cart\CartTotalManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\Cart\CartTotalRepository">
+        <plugin name="ecombricksVendorQuotePluginModelCartCartTotalRepository" type="Ecombricks\VendorQuote\Plugin\Model\Cart\CartTotalRepository" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\CouponManagement">
+        <plugin name="ecombricksVendorQuotePluginModelCouponManagement" type="Ecombricks\VendorQuote\Plugin\Model\CouponManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\PaymentMethodManagement">
+        <plugin name="ecombricksVendorQuotePluginModelPaymentMethodManagement" type="Ecombricks\VendorQuote\Plugin\Model\PaymentMethodManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\ShippingAddressManagement">
+        <plugin name="ecombricksVendorQuotePluginModelShippingAddressManagement" type="Ecombricks\VendorQuote\Plugin\Model\ShippingAddressManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Quote\Model\ShippingMethodManagement">
+        <plugin name="ecombricksVendorQuotePluginModelShippingMethodManagement" type="Ecombricks\VendorQuote\Plugin\Model\ShippingMethodManagement" sortOrder="-100" />
+    </type>
+    
+    <virtualType name="Ecombricks\VendorQuote\Observer\Framework\Model\AbstractModel\AfterLoad" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\AfterLoad\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="quote" xsi:type="string">Magento\Quote\Model\Quote</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorQuote\Observer\Framework\Model\AbstractModel\AfterSave" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\AfterSave\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="quote" xsi:type="string">Magento\Quote\Model\Quote</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorQuote\Observer\Framework\Model\AbstractModel\BeforeSave" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\BeforeSave\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="quote" xsi:type="string">Magento\Quote\Model\Quote</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorQuote\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\AfterLoad" type="Ecombricks\Vendor\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\AfterLoad\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="quote" xsi:type="string">Magento\Quote\Model\ResourceModel\Quote\Collection</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorQuote\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\BeforeLoad" type="Ecombricks\Vendor\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\BeforeLoad\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="quote" xsi:type="string">Magento\Quote\Model\ResourceModel\Quote\Collection</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    
+</config>

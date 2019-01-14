@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\EntityManager\Operation\Read\ReadMain">
+        <plugin name="ecombricksVendorCatalogPluginFrameworkEntityManagerOperationReadReadMain" type="Ecombricks\VendorCatalog\Plugin\Framework\EntityManager\Operation\Read\ReadMain" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\Create\CreateMain">
+        <plugin name="ecombricksVendorCatalogPluginFrameworkEntityManagerOperationCreateCreateMain" type="Ecombricks\VendorCatalog\Plugin\Framework\EntityManager\Operation\Create\CreateMain" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\Update\UpdateMain">
+        <plugin name="ecombricksVendorCatalogPluginFrameworkEntityManagerOperationUpdateUpdateMain" type="Ecombricks\VendorCatalog\Plugin\Framework\EntityManager\Operation\Update\UpdateMain" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\Delete\DeleteMain">
+        <plugin name="ecombricksVendorCatalogPluginFrameworkEntityManagerOperationDeleteDeleteMain" type="Ecombricks\VendorCatalog\Plugin\Framework\EntityManager\Operation\Delete\DeleteMain" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\Layer\FilterList">
+        <arguments>
+            <argument name="filters" xsi:type="array">
+                <item name="vendor" xsi:type="string">Ecombricks\VendorCatalog\Model\Layer\Filter\Vendor</item>
+            </argument>
+        </arguments>
+        <plugin name="ecombricksVendorCatalogPluginModelLayerFilterList" type="Ecombricks\VendorCatalog\Plugin\Model\Layer\FilterList" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="ecombricksVendorCatalogPluginModelProduct" type="Ecombricks\VendorCatalog\Plugin\Model\Product" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ProductFactory">
+        <plugin name="ecombricksVendorCatalogPluginModelProductFactory" type="Ecombricks\VendorCatalog\Plugin\Model\ProductFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <plugin name="ecombricksVendorCatalogPluginModelResourceModelProductCollectionFactory" type="Ecombricks\VendorCatalog\Plugin\Model\ResourceModel\Product\CollectionFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Link\Product\CollectionFactory">
+        <plugin name="ecombricksVendorCatalogPluginModelResourceModelProductLinkProductCollectionFactory" type="Ecombricks\VendorCatalog\Plugin\Model\ResourceModel\Product\Link\Product\CollectionFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\Product\Compare\ListCompareFactory">
+        <plugin name="ecombricksVendorCatalogPluginModelCompareListCompareFactory" type="Ecombricks\VendorCatalog\Plugin\Model\Compare\ListCompareFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Compare\Item\CollectionFactory">
+        <plugin name="ecombricksVendorCatalogPluginModelResourceModelProductCompareItemCollectionFactory" type="Ecombricks\VendorCatalog\Plugin\Model\ResourceModel\Product\Compare\Item\CollectionFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Builder">
+        <plugin name="ecombricksVendorCatalogPluginControllerAdminhtmlProductBuilder" type="Ecombricks\VendorCatalog\Plugin\Controller\Adminhtml\Product\Builder" sortOrder="-100" />
+    </type>
+    <virtualType name="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\AfterLoad" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\AfterLoad\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="catalogProduct" xsi:type="string">Magento\Catalog\Model\Product</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\AfterSave" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\AfterSave\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="catalogProduct" xsi:type="string">Magento\Catalog\Model\Product</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\BeforeSave" type="Ecombricks\Vendor\Observer\Framework\Model\AbstractModel\BeforeSave\Vendor">
+        <arguments>
+            <argument name="targetedTypes" xsi:type="array">
+                <item name="catalogProduct" xsi:type="string">Magento\Catalog\Model\Product</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

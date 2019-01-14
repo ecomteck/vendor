@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">vendor_form.vendor_form_data_source</item>
+            <item name="namespace" xsi:type="string">vendor_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="childrenFromMeta" xsi:type="boolean">true</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Ecombricks\Vendor\Block\Adminhtml\Vendor\Edit\Button\SaveAndContinue" />
+            <button name="save" class="Ecombricks\Vendor\Block\Adminhtml\Vendor\Edit\Button\Save" />
+            <button name="reset" class="Ecombricks\Vendor\Block\Adminhtml\Vendor\Edit\Button\Reset" />
+            <button name="delete" class="Ecombricks\Vendor\Block\Adminhtml\Vendor\Edit\Button\Delete" />
+            <button name="back" class="Ecombricks\Vendor\Block\Adminhtml\Vendor\Edit\Button\Back" />
+        </buttons>
+        <deps>
+            <dep>vendor_form.vendor_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="vendor_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <dataProvider class="Ecombricks\Vendor\Ui\DataProvider\Vendor\Form\VendorDataProvider" name="vendor_form_data_source">
+            <settings>
+                <requestFieldName>vendor_id</requestFieldName>
+                <primaryFieldName>vendor_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+</form>

@@ -1,0 +1,90 @@
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+// Common
+& when (@media-common = true) {
+    .vendors {
+        margin: @indent__l 0;
+    }
+    .vendor {
+        &-items {
+            &:extend(.abs-reset-list all);
+        }
+        &-item {
+            vertical-align: top;
+            &:extend(.abs-add-box-sizing all);
+            &-name {
+                &:extend(.abs-product-link all);
+                -moz-hyphens: auto;
+                -ms-hyphens: auto;
+                -webkit-hyphens: auto;
+                display: block;
+                hyphens: auto;
+                margin: @indent__xs 0;
+                word-wrap: break-word;
+            }
+            &-info {
+                max-width: 100%;
+                width: 152px;
+                .page-vendors & {
+                    width: 240px;
+                }
+            }
+            &-description {
+                margin: @indent__m 0;
+            }
+            .vendor-reviews-summary {
+                .rating-summary {
+                    margin-right: 30px;
+                }
+                .reviews-actions {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+    .column.main {
+        .vendor {
+            &-items {
+                margin-left: 0;
+            }
+            &-item {
+                padding-left: 0;
+            }
+        }
+    }
+    .vendors-list {
+        .vendor {
+            &-item {
+                display: table;
+                width: 100%;
+                &-info {
+                    display: table-row;
+                }
+                &-image {
+                    display: table-cell;
+                    padding: 0 @indent__l @indent__l 0;
+                    vertical-align: top;
+                    width: 300px;
+                }
+                &-details {
+                    display: table-cell;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
+// Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .vendors-list .vendor {
+        &-item {
+            table-layout: fixed;
+            &-image {
+                padding: 0 @indent__s @indent__s 0;
+                width: 30%;
+            }
+        }
+    }
+}

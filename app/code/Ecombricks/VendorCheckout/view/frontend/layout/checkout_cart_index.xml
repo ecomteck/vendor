@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page>
+    <body>
+        <referenceContainer name="content">
+            <block class="Ecombricks\VendorCheckout\Block\Cart\Switcher" name="cart.switcher" before="checkout.cart" template="Ecombricks_VendorCheckout::cart/switcher.phtml" />
+        </referenceContainer>
+    </body>
+</page>

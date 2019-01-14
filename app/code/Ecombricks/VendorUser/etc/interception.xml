@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\User\Model\User">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorFlagTrait" sortOrder="-90" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorsTrait" sortOrder="-85" />
+    </type>
+    <type name="Magento\User\Model\UserFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\User\Model\ResourceModel\User">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorFlagTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorsTrait" sortOrder="-95" />
+        <property name="isVendorTable" type="string">ecombricks_vendor_admin_user</property>
+        <property name="vendorIdsTable" type="string">ecombricks_vendor_admin_user_vendor</property>
+    </type>
+    <type name="Magento\User\Model\ResourceModel\User\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorFlagTrait" sortOrder="-90" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorsTrait" sortOrder="-85" />
+        <property name="isVendorTable" type="string">ecombricks_vendor_admin_user</property>
+        <property name="vendorIdsTable" type="string">ecombricks_vendor_admin_user_vendor</property>
+    </type>
+    <type name="Magento\User\Controller\Adminhtml\User\Role\SaveRole">
+        <trait type="Ecombricks\VendorUser\Controller\Adminhtml\User\Role\SaveRole\VendorTrait" sortOrder="-90" />
+        <property name="vendorRootAclResource" type="object">Magento\Framework\Acl\RootResource</property>
+    </type>
+    <type name="Magento\User\Controller\Adminhtml\User\Save">
+        <trait type="Ecombricks\VendorUser\Controller\Adminhtml\User\Save\VendorTrait" sortOrder="-90" />
+    </type>
+</config>

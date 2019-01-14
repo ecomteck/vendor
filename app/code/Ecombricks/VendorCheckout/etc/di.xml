@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ecombricks\VendorCheckout\Api\ShippingInformationManagementInterface" type="Ecombricks\VendorCheckout\Model\ShippingInformationManagement" />
+    <preference for="Ecombricks\VendorCheckout\Api\TotalsInformationManagementInterface" type="Ecombricks\VendorCheckout\Model\TotalsInformationManagement" />
+    <preference for="Ecombricks\VendorCheckout\Api\PaymentInformationManagementInterface" type="Ecombricks\VendorCheckout\Model\PaymentInformationManagement" />
+    <type name="Magento\Checkout\Model\Session">
+        <plugin name="ecombricksVendorCheckoutPluginModelSession" type="Ecombricks\VendorCheckout\Plugin\Model\Session" />
+    </type>
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="ecombricksVendorCheckoutPluginModelCart" type="Ecombricks\VendorCheckout\Plugin\Model\Cart" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\Type\OnepageFactory">
+        <plugin name="ecombricksVendorCheckoutPluginModelTypeOnepageFactory" type="Ecombricks\VendorCheckout\Plugin\Model\Type\OnepageFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <plugin name="ecombricksVendorCheckoutPluginModelCompositeConfigProvider" type="Ecombricks\VendorCheckout\Plugin\Model\CompositeConfigProvider" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="ecombricksVendorCheckoutPluginBlockCartSidebar" type="Ecombricks\VendorCheckout\Plugin\Block\Cart\Sidebar" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Controller\Cart\Index">
+        <plugin name="ecombricksVendorCheckoutPluginControllerCartIndex" type="Ecombricks\VendorCheckout\Plugin\Controller\Cart\Index" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Observer\LoadCustomerQuoteObserver">
+        <plugin name="ecombricksVendorCheckoutPluginObserverLoadCustomerQuoteObserver" type="Ecombricks\VendorCheckout\Plugin\Observer\LoadCustomerQuoteObserver" sortOrder="-100" />
+    </type>
+    
+    <type name="Magento\Checkout\Model\GuestPaymentInformationManagement">
+        <plugin name="ecombricksVendorCheckoutPluginModelGuestPaymentInformationManagement" type="Ecombricks\VendorCheckout\Plugin\Model\GuestPaymentInformationManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\GuestShippingInformationManagement">
+        <plugin name="ecombricksVendorCheckoutPluginModelGuestShippingInformationManagement" type="Ecombricks\VendorCheckout\Plugin\Model\GuestShippingInformationManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\GuestTotalsInformationManagement">
+        <plugin name="ecombricksVendorCheckoutPluginModelGuestTotalsInformationManagement" type="Ecombricks\VendorCheckout\Plugin\Model\GuestTotalsInformationManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="ecombricksVendorCheckoutPluginModelPaymentInformationManagement" type="Ecombricks\VendorCheckout\Plugin\Model\PaymentInformationManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="ecombricksVendorCheckoutPluginModelShippingInformationManagement" type="Ecombricks\VendorCheckout\Plugin\Model\ShippingInformationManagement" sortOrder="-100" />
+    </type>
+    <type name="Magento\Checkout\Model\TotalsInformationManagement">
+        <plugin name="ecombricksVendorCheckoutPluginModelTotalsInformationManagement" type="Ecombricks\VendorCheckout\Plugin\Model\TotalsInformationManagement" sortOrder="-100" />
+    </type>
+    
+</config>

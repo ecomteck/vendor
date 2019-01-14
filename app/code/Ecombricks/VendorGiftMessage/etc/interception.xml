@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    
+    <type name="Magento\GiftMessage\Model\GuestCartRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\GiftMessage\Model\GuestItemRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\GuestVendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorQuoteIdMaskFactory" type="object">Magento\Quote\Model\QuoteIdMaskFactory</property>
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\GiftMessage\Model\CartRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    <type name="Magento\GiftMessage\Model\ItemRepository">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorQuote\Model\VendorIdProviderTrait" sortOrder="-90" />
+        <property name="vendorCartRepository" type="object">Magento\Quote\Api\CartRepositoryInterface</property>
+    </type>
+    
+</config>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\Url">
+        <property name="vendorParameterActionPathPatterns" type="array">
+            <item name="adminDashboard">#^admin/admin/dashboard#</item>
+        </property>
+    </type>
+    <type name="Magento\Backend\Block\Widget\Tabs">
+        <trait type="Ecombricks\VendorBackend\Block\Widget\Tabs\RenderTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Backend\Block\Dashboard\AbstractDashboard">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Backend\Block\Dashboard\Grid">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Backend\Block\Dashboard\Grids">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Backend\Helper\Dashboard\Order">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Backend\Controller\Adminhtml\Dashboard">
+        <trait type="Ecombricks\VendorBackend\Controller\Adminhtml\Dashboard\VendorTrait" sortOrder="-80" />
+    </type>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorAuthorization:etc/vendor_acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin" enabledForVendor="true">
+                <resource id="Magento_Backend::stores" enabledForVendor="true">
+                    <resource id="Magento_Backend::stores_settings" enabledForVendor="true">
+                        <resource id="Magento_Config::config" enabledForVendor="true">
+                            <resource id="Magento_Multishipping::config_multishipping" enabledForVendor="true" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

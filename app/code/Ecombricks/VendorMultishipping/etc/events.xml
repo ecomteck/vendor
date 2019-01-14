@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_type_multishipping_create_orders_single">
+        <observer name="ecombricksVendorMultishippingObserverModelCheckoutTypeMultishippingCreateOrder" instance="Ecombricks\VendorMultishipping\Observer\Model\Checkout\Type\Multishipping\CreateOrder" />
+    </event>
+</config>

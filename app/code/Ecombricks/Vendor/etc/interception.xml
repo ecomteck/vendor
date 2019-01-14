@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\App\Action\Action">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\App\Action\Action\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Framework\View\Layout">
+        <trait type="Ecombricks\Vendor\Framework\View\Layout\RenderElementTrait" sortOrder="-110" />
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\View\Layout\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Framework\View\Model\Layout\Merge">
+        <trait type="Ecombricks\Vendor\Framework\View\Model\Layout\Merge\VendorTrait" sortOrder="-100" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Framework\View\Layout\GeneratorPool">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\View\Layout\GeneratorPool\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Framework\View\Layout\Generator\Block">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Result\LayoutFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Result\PageFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Element\BlockFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Result\Layout">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Controller\ResultFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Url">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Url\VendorTrait" sortOrder="-90" />
+        <property name="vendorRouteParamsResolverFactory" type="copy">routeParamsResolverFactory</property>
+    </type>
+    <type name="Magento\Framework\Url\RouteParamsResolverFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Url\RouteParamsResolver">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Url\RouteParamsResolver\VendorTrait" sortOrder="-90" />
+    </type>
+</config>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="config">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="type" type="typeType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:unique name="uniqueTrait">
+                        <xs:annotation>
+                            <xs:documentation>Trait type should be unique</xs:documentation>
+                        </xs:annotation>
+                        <xs:selector xpath="trait" />
+                        <xs:field xpath="@type" />
+                    </xs:unique>
+                    <xs:unique name="uniqueProperty">
+                        <xs:annotation>
+                            <xs:documentation>Property name should be unique</xs:documentation>
+                        </xs:annotation>
+                        <xs:selector xpath="property" />
+                        <xs:field xpath="@name" />
+                    </xs:unique>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:unique name="uniqueType">
+            <xs:annotation>
+                <xs:documentation>Type name should be unique</xs:documentation>
+            </xs:annotation>
+            <xs:selector xpath="type" />
+            <xs:field xpath="@name" />
+        </xs:unique>
+    </xs:element>
+    <xs:complexType name="typeType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="trait" type="traitType" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="property" type="propertyType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:choice>
+        <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="traitType">
+        <xs:attribute name="type" type="xs:string" use="required" />
+        <xs:attribute name="disabled" type="xs:boolean" use="optional" />
+        <xs:attribute name="sortOrder" type="xs:int" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="propertyType" mixed="true">
+        <xs:sequence>
+            <xs:element name="item" type="propertyItemType" minOccurs="0" maxOccurs="unbounded">
+                <xs:key name="itemName">
+                    <xs:selector xpath="item"></xs:selector>
+                    <xs:field xpath="@name"></xs:field>
+                </xs:key>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="type" type="propertyTypeType" use="required" />
+        <xs:attribute name="scope" type="propertyScopeType" use="optional" />
+        <xs:attribute name="disabled" type="xs:boolean" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="propertyItemType" mixed="true">
+        <xs:attribute name="name" use="required" />
+    </xs:complexType>
+    <xs:simpleType name="propertyTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="string" />
+            <xs:enumeration value="integer" />
+            <xs:enumeration value="float" />
+            <xs:enumeration value="boolean" />
+            <xs:enumeration value="array" />
+            <xs:enumeration value="object" />
+            <xs:enumeration value="copy" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="propertyScopeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="private" />
+            <xs:enumeration value="protected" />
+            <xs:enumeration value="public" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/carts/mine/gift-message/:vendorId" method="GET">
+        <service class="Magento\GiftMessage\Api\CartRepositoryInterface" method="vendorGet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/gift-message/:itemId/:vendorId" method="GET">
+        <service class="Magento\GiftMessage\Api\ItemRepositoryInterface" method="vendorGet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/gift-message/:vendorId" method="POST">
+        <service class="Magento\GiftMessage\Api\CartRepositoryInterface" method="vendorSave" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/gift-message/:itemId/:vendorId" method="POST">
+        <service class="Magento\GiftMessage\Api\ItemRepositoryInterface" method="vendorSave" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+</routes>

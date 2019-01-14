@@ -1,0 +1,24 @@
+{
+    "name": "ecombricks/module-vendor-captcha",
+    "description": "N/A",
+    "require": {
+        "magento/framework": "101.0.*",
+        "ecombricks/module-framework": "102.1.*",
+        "ecombricks/module-vendor-common": "102.1.*",
+        "ecombricks/module-vendor-contact": "102.1.*",
+        "magento/module-captcha": "100.2.*"
+    },
+    "type": "magento2-module",
+    "version": "102.1.4",
+    "license": [
+        "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ecombricks\\VendorCaptcha\\": ""
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorConfig:etc/vendor_system_file.xsd">
+    <system>
+        <section id="sales" enabledForVendor="true">
+            <group id="gift_options" enabledForVendor="true">
+                <field id="allow_order" enabledForVendor="true"/>
+                <field id="allow_items" enabledForVendor="true"/>
+            </group>
+        </section>
+    </system>
+</config>

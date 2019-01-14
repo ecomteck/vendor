@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php if ($block->getTotalNumber()) : ?>
+<div class="toolbar toolbar-vendors" data-mage-init='<?= $block->getWidgetOptionsJson() ?>'>
+    <?php include ($block->getTemplateFile('Ecombricks_Vendor::vendor/list/toolbar/amount.phtml')) ?>
+    <?= $block->getPagerHtml() ?>
+    <?php include ($block->getTemplateFile('Ecombricks_Vendor::vendor/list/toolbar/limiter.phtml')) ?>
+    <?php include ($block->getTemplateFile('Ecombricks_Vendor::vendor/list/toolbar/sorter.phtml')) ?>
+</div>
+<?php endif ?>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <referenceBlock name="adminhtml.user.editroles">
+                <block class="Ecombricks\VendorUser\Block\Role\Tab\VendorEdit" name="adminhtml.user.role.tab.vendor_edit" />
+                <action method="addTabAfter">
+                    <argument name="name" xsi:type="string">vendor_edit</argument>
+                    <argument name="block" xsi:type="string">adminhtml.user.role.tab.vendor_edit</argument>
+                    <argument name="after" xsi:type="string">info</argument>
+                </action>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

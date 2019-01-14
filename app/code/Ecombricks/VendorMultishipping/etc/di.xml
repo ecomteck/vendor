@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Ecombricks\VendorMultishipping\Model\Checkout\Type\Multishipping\Session" type="Ecombricks\Vendor\Framework\Session\Generic">
+        <arguments>
+            <argument name="vendorKeys" xsi:type="array">
+                <item name="order_ids" xsi:type="string">order_ids</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Multishipping\Model\Checkout\Type\Multishipping">
+        <arguments>
+            <argument name="session" xsi:type="object">Ecombricks\VendorMultishipping\Model\Checkout\Type\Multishipping\Session</argument>
+        </arguments>
+    </type>
+    <virtualType name="Ecombricks\VendorMultishipping\Block\Checkout\AbstractMultishipping\Context" type="Magento\Framework\View\Element\Template\Context">
+        <arguments>
+            <argument name="session" xsi:type="object">Ecombricks\VendorMultishipping\Model\Checkout\Type\Multishipping\Session</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Multishipping\Block\Checkout\AbstractMultishipping">
+        <arguments>
+            <argument name="context" xsi:type="object">Ecombricks\VendorMultishipping\Block\Checkout\AbstractMultishipping\Context</argument>
+        </arguments>
+    </type>
+</config>

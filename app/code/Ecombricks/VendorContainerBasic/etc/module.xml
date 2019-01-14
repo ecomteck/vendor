@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+  * Copyright © eComBricks. All rights reserved.
+  * See LICENSE.txt for license details.
+  */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Ecombricks_VendorContainerBasic" setup_version="2.1.5">
+        <sequence>
+            <module name="Ecombricks_Vendor"/>
+            <module name="Ecombricks_VendorAdminNotification"/>
+            <module name="Ecombricks_VendorAuthorization"/>
+            <module name="Ecombricks_VendorBackend"/>
+            <module name="Ecombricks_VendorBundle"/>
+            <module name="Ecombricks_VendorCaptcha"/>
+            <module name="Ecombricks_VendorCatalog"/>
+            <module name="Ecombricks_VendorCatalogSearch"/>
+            <module name="Ecombricks_VendorCheckout"/>
+            <module name="Ecombricks_VendorConfig"/>
+            <module name="Ecombricks_VendorConfigurableProduct"/>
+            <module name="Ecombricks_VendorContact"/>
+            <module name="Ecombricks_VendorGiftMessage"/>
+            <module name="Ecombricks_VendorGroupedProduct"/>
+            <module name="Ecombricks_VendorMsrp"/>
+            <module name="Ecombricks_VendorMultishipping"/>
+            <module name="Ecombricks_VendorPersistent"/>
+            <module name="Ecombricks_VendorQuote"/>
+            <module name="Ecombricks_VendorReports"/>
+            <module name="Ecombricks_VendorRobots"/>
+            <module name="Ecombricks_VendorSales"/>
+            <module name="Ecombricks_VendorTax"/>
+            <module name="Ecombricks_VendorTheme"/>
+            <module name="Ecombricks_VendorUi"/>
+            <module name="Ecombricks_VendorUser"/>
+            <module name="Ecombricks_VendorWishlist"/>
+        </sequence>
+    </module>
+</config>

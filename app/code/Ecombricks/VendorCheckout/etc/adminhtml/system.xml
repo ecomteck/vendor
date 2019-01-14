@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorConfig:etc/vendor_system_file.xsd">
+    <system>
+        <section id="checkout" enabledForVendor="true">
+            <group id="options" enabledForVendor="true">
+                <field id="onepage_checkout_enabled" enabledForVendor="true"/>
+                <field id="guest_checkout" enabledForVendor="true"/>
+                <field id="display_billing_address_on" enabledForVendor="true"/>
+                <field id="max_items_display_count" enabledForVendor="true"/>
+            </group>
+            <group id="cart" enabledForVendor="true">
+                <field id="redirect_to_cart" enabledForVendor="true"/>
+                <field id="number_items_to_display_pager" enabledForVendor="true"/>
+            </group>
+            <group id="cart_link" enabledForVendor="true">
+                <field id="use_qty" enabledForVendor="true"/>
+            </group>
+            <group id="payment_failed" enabledForVendor="true">
+                <field id="template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+        </section>
+    </system>
+</config>

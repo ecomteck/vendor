@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="vendor_navigation" />
+    <body>
+        <referenceContainer name="content">
+            <container name="vendor.info.main" htmlTag="div" htmlClass="vendor-info-main" before="-">
+                <block class="Ecombricks\Vendor\Block\Vendor\View" name="vendor.info.review" template="Ecombricks_Vendor::vendor/view/review.phtml"/>
+                <block class="Ecombricks\Vendor\Block\Vendor\View" name="vendor.info.short_description" template="Ecombricks_Vendor::vendor/view/short_description.phtml"/>
+                <container name="vendor.info.extrahint" as="extrahint" label="Vendor Extra Hint"/>
+            </container>
+            <container name="vendor.info.media" htmlTag="div" htmlClass="vendor media" after="vendor.info.main">
+                <block class="Ecombricks\Vendor\Block\Vendor\View\Logo" name="product.info.media.logo" template="Ecombricks_Vendor::vendor/view/logo.phtml"/>
+            </container>
+            <block class="Ecombricks\Vendor\Block\Vendor\View" name="vendor.info.details" template="Ecombricks_Vendor::vendor/view/details.phtml" after="vendor.info.media">
+                <block class="Ecombricks\Vendor\Block\Vendor\View" name="vendor.info.description" as="description" template="Ecombricks_Vendor::vendor/view/description.phtml" group="detailed_info">
+                    <arguments>
+                        <argument translate="true" name="title" xsi:type="string">Details</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

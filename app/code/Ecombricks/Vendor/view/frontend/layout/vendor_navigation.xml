@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="Ecombricks\Vendor\Block\Vendor\Navigation" name="vendor_navigation" before="-" template="Ecombricks_Vendor::vendor/navigation.phtml">
+                <block class="Ecombricks\Vendor\Block\Vendor\Navigation\Link" name="vendor.navigation.view.link">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Vendor Information</argument>
+                        <argument name="path" xsi:type="string">vendors/vendor/view</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

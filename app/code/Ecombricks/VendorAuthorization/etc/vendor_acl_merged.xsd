@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:redefine schemaLocation="urn:magento:framework:Acl/etc/acl_merged.xsd">
+        <xs:complexType name="aclResource">
+            <xs:complexContent>
+                <xs:extension base="aclResource">
+                    <xs:attribute name="enabledForVendor" type="xs:boolean" use="optional" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:redefine>
+</xs:schema>

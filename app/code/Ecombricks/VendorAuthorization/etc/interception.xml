@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\Acl\AclResource\Config\SchemaLocator">
+        <trait type="Ecombricks\VendorAuthorization\Framework\Acl\AclResource\Config\SchemaLocator\VendorTrait" sortOrder="-100" />
+        <property name="vendorUrnResolver" type="object">Magento\Framework\Config\Dom\UrnResolver</property>
+    </type>
+    <type name="Magento\Framework\Acl\AclResource\Config\Converter\Dom">
+        <trait type="Ecombricks\VendorAuthorization\Framework\Acl\AclResource\Config\Converter\Dom\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Acl\AclResource\Provider">
+        <trait type="Ecombricks\VendorAuthorization\Framework\Acl\AclResource\Provider\VendorTrait" sortOrder="-100" />
+        <property name="vendorAclDataCache" type="object">Magento\Framework\Acl\Data\CacheInterface</property>
+        <property name="vendorAclDataCacheKey" type="string">provider_vendor_acl_resources_cache</property>
+        <property name="vendorSerializer" type="object">Magento\Framework\Serialize\Serializer\Json</property>
+        <property name="vendorResourceTreeBuilder" type="object">Ecombricks\VendorAuthorization\Framework\Acl\AclResource\VendorTreeBuilder</property>
+    </type>
+    <type name="Magento\Authorization\Model\Role">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorFlagTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Authorization\Model\RoleFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Authorization\Model\ResourceModel\Role">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorFlagTrait" sortOrder="-100" />
+        <property name="isVendorTable" type="string">ecombricks_vendor_authorization_role</property>
+    </type>
+    <type name="Magento\Authorization\Model\ResourceModel\Role\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorFlagTrait" sortOrder="-90" />
+        <property name="isVendorTable" type="string">ecombricks_vendor_authorization_role</property>
+    </type>
+    <type name="Magento\Authorization\Model\ResourceModel\Role\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorFlagTrait" sortOrder="-100" />
+    </type>
+</config>

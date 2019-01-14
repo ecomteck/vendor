@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="model_load_after">
+        <observer name="ecombricksVendorSalesObserverFrameworkModelAbstractModelAfterLoad" instance="Ecombricks\VendorSales\Observer\Framework\Model\AbstractModel\AfterLoad" />
+    </event>
+    <event name="model_save_before">
+        <observer name="ecombricksVendorSalesObserverFrameworkModelAbstractModelBeforeSave" instance="Ecombricks\VendorSales\Observer\Framework\Model\AbstractModel\BeforeSave" />
+    </event>
+    <event name="model_save_after">
+        <observer name="ecombricksVendorSalesObserverFrameworkModelAbstractModelAfterSave" instance="Ecombricks\VendorSales\Observer\Framework\Model\AbstractModel\AfterSave" />
+    </event>
+    <event name="model_delete_before">
+        <observer name="ecombricksVendorSalesObserverFrameworkModelAbstractModelBeforeDelete" instance="Ecombricks\VendorSales\Observer\Framework\Model\AbstractModel\BeforeDelete" />
+    </event>
+    <event name="core_collection_abstract_load_before">
+        <observer name="ecombricksVendorSalesObserverFrameworkModelResourceModelDbCollectionAbstractCollectionBeforeLoad" instance="Ecombricks\VendorSales\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\BeforeLoad" />
+    </event>
+    <event name="core_collection_abstract_load_after">
+        <observer name="ecombricksVendorSalesObserverFrameworkModelResourceModelDbCollectionAbstractCollectionAfterLoad" instance="Ecombricks\VendorSales\Observer\Framework\Model\ResourceModel\Db\Collection\AbstractCollection\AfterLoad" />
+    </event>
+</config>

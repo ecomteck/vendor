@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <settings>
+        <imports>
+            <link name="params.set">${ $.name }.product-details.attribute_set_id:value</link>
+            <link name="params.vendor">${ $.name }.product-details.vendor_id:value</link>
+        </imports>
+        <listens>
+            <link name="${ $.name }.product-details.vendor_id:value">params.vendor reload</link>
+        </listens>
+    </settings>
+</form>

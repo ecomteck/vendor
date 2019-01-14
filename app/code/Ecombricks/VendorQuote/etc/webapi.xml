@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/guest-carts/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\GuestCartManagementInterface" method="vendorCreateEmptyCart" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/carts/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\CartManagementInterface" method="vendorCreateEmptyCart" />
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+    <route url="/V1/customers/:customerId/carts/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\CartManagementInterface" method="vendorCreateEmptyCartForCustomer" />
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+    <route url="/V1/carts/mine/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\CartManagementInterface" method="vendorCreateEmptyCartForCustomer" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\CartManagementInterface" method="vendorGetCartForCustomer" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/order/:vendorId" method="PUT">
+        <service class="Ecombricks\VendorQuote\Api\CartManagementInterface" method="vendorPlaceOrder" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/shipping-methods/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\ShippingMethodManagementInterface" method="vendorGetList" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/items/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\CartItemRepositoryInterface" method="vendorGetList" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/items/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\CartItemRepositoryInterface" method="vendorSave" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/items/:itemId/:vendorId" method="PUT">
+        <service class="Ecombricks\VendorQuote\Api\CartItemRepositoryInterface" method="vendorSave" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/items/:itemId/:vendorId" method="DELETE">
+        <service class="Ecombricks\VendorQuote\Api\CartItemRepositoryInterface" method="vendorDeleteById" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/selected-payment-method/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\PaymentMethodManagementInterface" method="vendorGet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/selected-payment-method/:vendorId" method="PUT">
+        <service class="Ecombricks\VendorQuote\Api\PaymentMethodManagementInterface" method="vendorSet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/payment-methods/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\PaymentMethodManagementInterface" method="vendorGetList" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/billing-address/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\BillingAddressManagementInterface" method="vendorGet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/billing-address/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\BillingAddressManagementInterface" method="vendorAssign" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/coupons/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\CouponManagementInterface" method="vendorGet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/coupons/:couponCode/:vendorId" method="PUT">
+        <service class="Ecombricks\VendorQuote\Api\CouponManagementInterface" method="vendorSet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/coupons/:vendorId" method="DELETE">
+        <service class="Ecombricks\VendorQuote\Api\CouponManagementInterface" method="vendorRemove" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/totals/:vendorId" method="GET">
+        <service class="Ecombricks\VendorQuote\Api\CartTotalRepositoryInterface" method="vendorGet" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/collect-totals/:vendorId" method="PUT">
+        <service class="Ecombricks\VendorQuote\Api\CartTotalManagementInterface" method="vendorCollectTotals" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/:vendorId" method="PUT">
+        <service class="Ecombricks\VendorQuote\Api\CartRepositoryInterface" method="vendorSave" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/estimate-shipping-methods/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\ShipmentEstimationInterface" method="vendorEstimateByExtendedAddress" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/estimate-shipping-methods-by-address-id/:vendorId" method="POST">
+        <service class="Ecombricks\VendorQuote\Api\ShippingMethodManagementInterface" method="vendorEstimateByAddressId" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">0</parameter>
+        </data>
+    </route>
+</routes>

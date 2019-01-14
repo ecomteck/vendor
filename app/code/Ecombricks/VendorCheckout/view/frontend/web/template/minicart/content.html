@@ -1,0 +1,80 @@
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<div class="block-title">
+    <strong>
+        <span class="text" translate="'My Carts'" />
+        <span
+            class="qty empty"
+            text="getCartParam('summary_count')"
+            data-bind="css: { empty: !!getCartParam('summary_count') == false }, attr: { title: $t('Items in Carts') }">
+        </span>
+    </strong>
+</div>
+<div class="block-content">
+    <button type="button"
+            id="btn-minicart-close"
+            class="action close"
+            data-action="close"
+            data-bind="attr: { title: $t('Close') }">
+        <span translate="'Close'"/>
+    </button>
+    <if args="getCartParam('summary_count')">
+    <strong class="subtitle" translate="'Recently added item(s)'" />
+    <div data-action="scroll" class="minicart-items-wrapper">
+        <ol class="vendor-carts" data-bind="foreach: { data: getCartParam('vendors'), as: 'vendor' }">
+            <if args="vendor.items.length">
+            <li class="vendor-cart" data-bind="attr: { 'data-vendor-id': vendor.id }">
+                <div class="vendor-cart-details">
+                    <div class="vendor-cart-title"><strong text="vendor.name" /></div>
+                    <div class="items-total">
+                        <span class="count" text="vendor.summary_count" />
+                        <translate args="'item'" if="vendor.summary_count == 1" />
+                        <translate args="'items'" if="vendor.summary_count > 1" />
+                    </div>
+                    <each args="$parents[0].getRegion('subtotalContainer')" render=""/>
+                    <div class="vendor-cart-items">
+                        <ol class="minicart-items" data-bind="foreach: { data: vendor.items, as: 'item' }">
+                            <each args="$parents[1].getRegion($parents[1].getItemRenderer(item.product_type))"
+                                render="{name: getTemplate(), data: item}" />
+                        </ol>
+                    </div>
+                    <div class="actions">
+                        <div class="primary">
+                            <if args="vendor.possible_onepage_checkout">
+                            <button
+                                    type="button"
+                                    class="action primary checkout" 
+                                    data-bind="attr: { title: $t('Checkout') }"
+                                    translate="'Checkout'" />
+                            </if>
+                            <button
+                                    type="button"
+                                    class="action primary viewcart"
+                                    data-bind="attr: {title: $t('View Cart')}" 
+                                    translate="'View Cart'" />
+                            <div data-bind="html: vendor.extra_actions"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            </if>
+        </ol>
+    </div>
+    </if>
+    <ifnot args="getCartParam('summary_count')">
+    <strong class="subtitle empty"
+            data-bind="visible: closeSidebar()"
+            translate="'You have no items in your shopping carts.'" />
+    <if args="getCartParam('cart_empty_message')">
+    <p class="minicart empty text" text="getCartParam('cart_empty_message')" />
+    </if>
+    </ifnot>
+    <div id="minicart-widgets" class="minicart-widgets">
+        <each args="getRegion('promotion')" render="" />
+    </div>
+</div>
+<each args="getRegion('sign-in-popup')" render="" />

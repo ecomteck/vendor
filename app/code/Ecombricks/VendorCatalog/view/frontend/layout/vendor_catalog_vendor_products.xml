@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="vendor_navigation" />
+    <body>
+        <referenceContainer name="content">
+            <block class="Ecombricks\VendorCatalog\Block\Vendor\Products" name="vendor" template="Ecombricks_VendorCatalog::vendor/products.phtml">
+                <block class="Ecombricks\VendorCatalog\Block\Vendor\Products\ListProduct" name="vendor.products.list" as="product_list" template="Magento_Catalog::product/list.phtml">
+                    <container name="vendor.product.list.additional" as="additional" />
+                    <block class="Magento\Framework\View\Element\RendererList" name="vendor.product.type.details.renderers" as="details.renderers">
+                        <block class="Magento\Framework\View\Element\Template" name="vendor.product.type.details.renderers.default" as="default" />
+                    </block>
+                    <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+                        <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="vendor.product.addto" as="addto" >
+                        <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                               name="vendor.product.addto.compare" as="compare"
+                               template="Magento_Catalog::product/list/addto/compare.phtml" />
+                    </block>
+                    <action method="setToolbarBlockName">
+                        <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                    </action>
+                </block>
+            </block>
+            <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+                <arguments>
+                    <argument name="triggers" xsi:type="array">
+                        <item name="compareProductLink" xsi:type="string">.action.tocompare</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

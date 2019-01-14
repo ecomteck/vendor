@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales_transactions.grid.container">
+            <referenceBlock name="sales.transactions.grid">
+                <arguments>
+                    <argument name="dataSource" xsi:type="object">Ecombricks\VendorSales\Model\ResourceModel\Order\Payment\Transaction\Grid\Collection</argument>
+                </arguments>
+                <referenceBlock name="sales.transactions.grid.columnSet">
+                    <block class="Ecombricks\VendorBackend\Block\Widget\Grid\Column\Vendor" name="vendor_id" as="vendor_id" after="is_closed" />
+                </referenceBlock>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>

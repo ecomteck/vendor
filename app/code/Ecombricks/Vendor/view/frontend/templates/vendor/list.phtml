@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $vendorCollection = $block->getLoadedVendorCollection() ?>
+<?php if ($vendorCollection->count()) : ?>
+<?= $block->getToolbarHtml() ?>
+<?= $block->getAdditionalHtml() ?>
+<div class="vendors wrapper vendors-list">
+    <ol class="vendors list items vendor-items">
+        <?php foreach ($vendorCollection as $vendor) : ?>
+        <?php $vendorNameStripped = $block->stripTags($vendor->getName(), null, true) ?>
+        <li class="item vendor vendor-item">
+        <div class="vendor-item-info" data-container="vendor-grid">
+            <a href="<?= $vendor->getUrl() ?>" class="vendor image vendor-item-image" tabindex="-1">
+                <img class="image" src="<?= $block->getLogoUrl($vendor) ?>" width="<?= $block->getLogoWidth() ?>" height="<?= $block->getLogoHeight() ?>" alt="<?= $vendorNameStripped ?>" />
+            </a>
+            <div class="vendor details vendor-item-details">
+                <strong class="vendor name vendor-item-name">
+                    <a class="vendor-item-link" href="<?= $vendor->getUrl() ?>">
+                        <?= $block->escapeHtml($vendor->getName()) ?>
+                    </a>
+                </strong>
+                <?= $block->getVendorReviewsSummaryHtml($vendor, \Ecombricks\Vendor\Block\Vendor\ReviewRendererInterface::FULL_VIEW) ?>
+                <div class="vendor-item-inner">
+                    <div class="vendor description vendor-item-description">
+                        <?= $vendor->getShortDescription() ?>
+                        <a href="<?= $vendor->getUrl() ?>" title="<?= $vendorNameStripped ?>" class="action more"><?= __('Learn More') ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        <?php endforeach ?>
+    </ol>
+</div>
+<?= $block->getToolbarHtml() ?>
+<?php else : ?>
+<div class="message info empty"><div><?= __('No vendor found.') ?></div></div>
+<?php endif ?>

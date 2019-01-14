@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Wishlist\Model\WishlistFactory">
+        <plugin name="ecombricksVendorWishlistPluginModelWishlistFactory" type="Ecombricks\VendorWishlist\Plugin\Model\WishlistFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Wishlist\Model\ResourceModel\Item\CollectionFactory">
+        <plugin name="ecombricksVendorWishlistPluginModelResourceModelItemCollectionFactory" type="Ecombricks\VendorWishlist\Plugin\Model\ResourceModel\Item\CollectionFactory" sortOrder="-100" />
+    </type>
+</config>

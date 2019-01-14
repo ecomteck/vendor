@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+  * Copyright © eComBricks. All rights reserved.
+  * See LICENSE.txt for license details.
+  */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Ecombricks_Vendor" setup_version="2.1.6">
+        <sequence>
+            <module name="Ecombricks_Framework"/>
+            <module name="Ecombricks_Interception"/>
+            <module name="Ecombricks_Version"/>
+            <module name="Ecombricks_Ui"/>
+            <module name="Magento_Backend"/>
+            <module name="Magento_MediaStorage"/>
+            <module name="Magento_Store"/>
+            <module name="Magento_Ui"/>
+        </sequence>
+    </module>
+</config>

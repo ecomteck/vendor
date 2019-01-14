@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.user.grid.container">
+            <referenceBlock name="adminhtml.user.grid">
+                <arguments>
+                    <argument name="dataSource" xsi:type="object">Ecombricks\VendorUser\Model\ResourceModel\User\Collection</argument>
+                </arguments>
+                <referenceBlock name="permission.user.grid.columnSet">
+                    <block class="Ecombricks\VendorBackend\Block\Widget\Grid\Column\IsVendor" name="permission.user.grid.columnSet.is_vendor" as="is_vendor" after="is_active" />
+                </referenceBlock>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>

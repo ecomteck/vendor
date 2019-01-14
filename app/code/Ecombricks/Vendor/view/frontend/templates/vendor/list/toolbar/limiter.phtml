@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<div class="field limiter">
+    <label class="label" for="limiter"><span><?= __('Show') ?></span></label>
+    <div class="control">
+        <select id="limiter" data-role="limiter" class="limiter-options">
+            <?php foreach ($block->getAvailableLimits() as $key => $limit): ?>
+            <option value="<?= $key ?>"<?php if ($block->isCurrentLimit($key)): ?>  selected="selected"<?php endif ?>><?= $limit ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <span class="limiter-text"><?= __('per page') ?></span>
+</div>

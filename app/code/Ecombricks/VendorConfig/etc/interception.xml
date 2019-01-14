@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    <type name="Magento\Framework\Url">
+        <property name="vendorParameterActionPathPatterns" type="array">
+            <item name="adminSystemConfig">#^admin/admin/system_config#</item>
+        </property>
+    </type>
+    <type name="Magento\Framework\App\Config">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorConfig\Framework\App\Config\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeCodeResolver" type="copy">scopeCodeResolver</property>
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Framework\App\Config\Value">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Framework\App\Config\ValueFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\App\Config\Source\RuntimeConfigSource">
+        <trait type="Ecombricks\VendorConfig\App\Config\Source\RuntimeConfigSource\VendorTrait" sortOrder="-100" />
+        <property name="vendorCollectionFactory" type="copy">collectionFactory</property>
+        <property name="vendorConverter" type="copy">converter</property>
+        <property name="vendorScopeCodeResolver" type="copy">scopeCodeResolver</property>
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Config\Model\ResourceModel\Config\Data">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <property name="vendorMainTable" type="string">ecombricks_vendor_core_config_data</property>
+    </type>
+    <type name="Magento\Config\Model\ResourceModel\Config\Data\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorMainTable" type="string">ecombricks_vendor_core_config_data</property>
+    </type>
+    <type name="Magento\Config\Model\Config\SchemaLocator">
+        <trait type="Ecombricks\VendorConfig\Model\Config\SchemaLocator\VendorTrait" sortOrder="-100" />
+        <property name="vendorUrnResolver" type="object">Magento\Framework\Config\Dom\UrnResolver</property>
+    </type>
+    <type name="Magento\Config\Model\Config">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Factory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure\Element\Iterator">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure\Element\FlyweightFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Structure\AbstractElement">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorConfig\Model\Config\Structure\AbstractElement\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Config\Model\Config\BackendFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\SourceFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Model\Config\Source\Email\Template">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Block\System\Config\Form">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Block\System\Config\Form\Field">
+        <trait type="Ecombricks\VendorConfig\Block\System\Config\Form\Field\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Config\Controller\Adminhtml\System\AbstractConfig">
+        <trait type="Ecombricks\VendorConfig\Controller\Adminhtml\System\AbstractConfig\VendorTrait" sortOrder="-80" />
+    </type>
+</config>

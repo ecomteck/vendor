@@ -1,0 +1,131 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<div class="create-order-sidebar-block" id="sidebar_data_<?= $block->getDataId() ?>">
+    <div class="head sidebar-title-block">
+        <a href="#" class="action-refresh"
+           title="<?= $block->escapeHtml(__('Refresh')) ?>"
+           onclick="order.loadArea('sidebar_<?= $block->getDataId() ?>', 'sidebar_data_<?= $block->getDataId() ?>');return false;">
+            <span><?= __('Refresh') ?></span>
+        </a>
+        <h5 class="create-order-sidebar-label">
+            <?= $block->getHeaderText() ?>
+            <span class="normal">(<?= $block->getItemCount() ?>)</span>
+        </h5>
+    </div>
+    <div class="content">
+        <div class="auto-scroll">
+        <?php if ($block->getItemCount()): ?>
+        <table class="admin__table-primary">
+            <thead>
+                <tr>
+                    <th class="col-item"><?= __('Item') ?></th>
+
+                    <?php if ($block->canDisplayItemQty()): ?>
+                        <th class="col-qty"><?= __('Qty') ?></th>
+                    <?php endif; ?>
+
+                    <?php if ($block->canDisplayPrice()): ?>
+                        <th class="col-price"><?= __('Price') ?></th>
+                    <?php endif; ?>
+
+                    <?php if ($block->canRemoveItems()): ?>
+                        <th class="col-remove">
+                            <span title="<?= $block->escapeHtml(__('Remove')) ?>"
+                                  class="icon icon-remove">
+                                <span><?= __('Remove') ?></span>
+                            </span>
+                        </th>
+                    <?php endif; ?>
+
+                    <th class="col-add">
+                        <span title="<?= $block->escapeHtml(__('Add To Order')) ?>"
+                              class="icon icon-add">
+                            <span><?= __('Add To Order') ?></span>
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach ($block->getItems() as $_item): ?>
+                    <tr>
+                        <td class="col-item"><?= $block->escapeHtml($_item->getName()) ?></td>
+
+                        <?php if ($block->canDisplayItemQty()): ?>
+                            <td class="col-qty">
+                                <?= $block->getItemQty($_item) ?>
+                            </td>
+                        <?php endif; ?>
+
+                        <?php if ($block->canDisplayPrice()): ?>
+                            <td class="col-price">
+                                <?php if ($block->getDataId() == 'cart'): ?>
+                                    <?= $block->getItemPrice($_item->getProduct()) ?>
+                                <?php else: ?>
+                                    <?= $block->getItemPrice(($_item->getProduct()) ? $_item->getProduct() : $_item) ?>
+                                <?php endif; ?>
+                            </td>
+                        <?php endif; ?>
+
+                        <?php if ($block->canRemoveItems()): ?>
+                            <td class="col-remove">
+                                <div class="admin__field-option">
+                                    <input id="sidebar-remove-<?= $block->getSidebarStorageAction() ?>-<?= $block->getItemId($_item) ?>"
+                                           type="checkbox"
+                                           class="admin__control-checkbox"
+                                           name="sidebar[remove][<?= $block->getItemId($_item) ?>]"
+                                           value="<?= $block->getDataId() ?>"
+                                           title="<?= $block->escapeHtml(__('Remove')) ?>" />
+                                    <label class="admin__field-label"
+                                           for="sidebar-remove-<?= $block->getSidebarStorageAction() ?>-<?= $block->getItemId($_item) ?>">
+                                    </label>
+                                </div>
+                            </td>
+                        <?php endif; ?>
+
+                        <td class="col-add">
+                            <div class="admin__field-option">
+                                <?php if ($block->isConfigurationRequired($_item->getTypeId()) && $block->getDataId() == 'wishlist'): ?>
+                                    <a href="#"
+                                       class="icon icon-configure"
+                                       title="<?= $block->escapeHtml(__('Configure and Add to Order')) ?>"
+                                       onclick="order.sidebarConfigureProduct('<?= 'sidebar_wishlist' ?>', <?= $block->getProductId($_item) ?>, <?= $block->getItemId($_item) ?>); return false;">
+                                        <span><?= __('Configure and Add to Order') ?></span>
+                                    </a>
+                                <?php elseif ($block->isConfigurationRequired($_item->getTypeId())): ?>
+                                    <a href="#"
+                                       class="icon icon-configure"
+                                       title="<?= $block->escapeHtml(__('Configure and Add to Order')) ?>"
+                                       onclick="order.sidebarConfigureProduct('<?= 'sidebar' ?>', <?= $block->getProductId($_item) ?>); return false;">
+                                        <span><?= __('Configure and Add to Order') ?></span>
+                                    </a>
+                                <?php else: ?>
+                                    <input id="sidebar-<?= $block->getSidebarStorageAction() ?>-<?= $block->getIdentifierId($_item) ?>"
+                                           type="checkbox"
+                                           class="admin__control-checkbox"
+                                           name="sidebar[<?= $block->getSidebarStorageAction() ?>][<?= $block->getIdentifierId($_item) ?>]"
+                                           value="<?= $block->canDisplayItemQty() ? $_item->getQty()*1 : 1 ?>"
+                                           title="<?= $block->escapeHtml(__('Add To Order')) ?>"/>
+                                    <label class="admin__field-label"
+                                           for="sidebar-<?= $block->getSidebarStorageAction() ?>-<?= $block->getIdentifierId($_item) ?>">
+                                    </label>
+                                <?php endif; ?>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php else: ?>
+            <span class="no-items"><?= __('No items') ?></span>
+        <?php endif ?>
+        </div>
+        <?php if ($block->getItemCount() && $block->canRemoveItems()): ?>
+            <?= $block->getChildHtml('empty_customer_cart_button') ?>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="model_load_after">
+        <observer name="ecombricksVendorCatalogObserverFrameworkModelAbstractModelAfterLoad" instance="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\AfterLoad" />
+    </event>
+    <event name="model_save_before">
+        <observer name="ecombricksVendorCatalogObserverFrameworkModelAbstractModelBeforeSave" instance="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\BeforeSave" />
+    </event>
+    <event name="model_save_after">
+        <observer name="ecombricksVendorCatalogObserverFrameworkModelAbstractModelAfterSave" instance="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\AfterSave" />
+    </event>
+    <event name="model_delete_before">
+        <observer name="ecombricksVendorCatalogObserverFrameworkModelAbstractModelBeforeDelete" instance="Ecombricks\VendorCatalog\Observer\Framework\Model\AbstractModel\BeforeDelete" />
+    </event>
+    <event name="eav_collection_abstract_load_before">
+        <observer name="ecombricksVendorCatalogObserverModelEavEntityCollectionAbstractCollectionBeforeLoad" instance="Ecombricks\VendorCatalog\Observer\Model\Eav\Entity\Collection\AbstractCollection\BeforeLoad" />
+    </event>
+    <event name="catalog_product_collection_load_after">
+        <observer name="ecombricksVendorCatalogObserverModelResourceModelProductCollectionAfterLoad" instance="Ecombricks\VendorCatalog\Observer\Model\Eav\Entity\Collection\AbstractCollection\AfterLoad" />
+    </event>
+</config>

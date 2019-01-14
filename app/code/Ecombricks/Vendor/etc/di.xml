@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ecombricks\Vendor\Block\Vendor\ReviewRendererInterface" type="Ecombricks\Vendor\Block\Vendor\ReviewRenderer"/>
+    <type name="Magento\Framework\App\Action\Action">
+        <plugin name="ecombricksVendorPluginFrameworkAppActionAction" type="Ecombricks\Vendor\Plugin\Framework\App\Action\Action" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Layout">
+        <plugin name="ecombricksVendorPluginFrameworkViewLayout" type="Ecombricks\Vendor\Plugin\Framework\View\Layout" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Model\Layout\Merge">
+        <plugin name="ecombricksVendorPluginFrameworkViewModelLayoutMerge" type="Ecombricks\Vendor\Plugin\Framework\View\Model\Layout\Merge" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Result\LayoutFactory">
+        <plugin name="ecombricksVendorPluginFrameworkViewResultLayoutFactory" type="Ecombricks\Vendor\Plugin\Framework\View\Result\LayoutFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Result\PageFactory">
+        <plugin name="ecombricksVendorPluginFrameworkViewResultPageFactory" type="Ecombricks\Vendor\Plugin\Framework\View\Result\PageFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Element\BlockFactory">
+        <plugin name="ecombricksVendorPluginFrameworkViewElementBlockFactory" type="Ecombricks\Vendor\Plugin\Framework\View\Element\BlockFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Controller\ResultFactory">
+        <plugin name="ecombricksVendorPluginFrameworkControllerResultFactory" type="Ecombricks\Vendor\Plugin\Framework\Controller\ResultFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Url">
+        <plugin name="ecombricksVendorPluginFrameworkUrl" type="Ecombricks\Vendor\Plugin\Framework\Url" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Url\RouteParamsResolverFactory">
+        <plugin name="ecombricksVendorPluginFrameworkUrlRouteParamsResolverFactory" type="Ecombricks\Vendor\Plugin\Framework\Url\RouteParamsResolverFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\Url\RouteParamsResolver">
+        <plugin name="ecombricksVendorPluginFrameworkUrlRouteParamsResolver" type="Ecombricks\Vendor\Plugin\Framework\Url\RouteParamsResolver" sortOrder="-100" />
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="vendor_listing_data_source" xsi:type="string">Ecombricks\Vendor\Model\ResourceModel\Vendor\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Ecombricks\Vendor\Model\ResourceModel\Vendor\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ecombricks_vendor_vendor</argument>
+            <argument name="eventPrefix" xsi:type="string">vendor_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">collection</argument>
+            <argument name="resourceModel" xsi:type="string">Ecombricks\Vendor\Model\ResourceModel\Vendor</argument>
+        </arguments>
+    </type>
+    <virtualType name="VendorGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="VendorGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Ecombricks\Vendor\Model\ResourceModel\Vendor\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">VendorGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+</config>

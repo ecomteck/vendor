@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Acl\AclResource\Config\SchemaLocator">
+        <plugin name="ecombricksVendorAuthorizationAclConfigSchemaLocator" type="Ecombricks\VendorAuthorization\Plugin\Framework\Acl\AclResource\Config\SchemaLocator" />
+    </type>
+    <type name="Magento\Framework\Acl\AclResource\Config\Converter\Dom">
+        <plugin name="ecombricksVendorAuthorizationAclConfigConverter" type="Ecombricks\VendorAuthorization\Plugin\Framework\Acl\AclResource\Config\Converter\Dom" />
+    </type>
+    <type name="Magento\Authorization\Model\RoleFactory">
+        <plugin name="ecombricksVendorAuthorizationPluginModelRoleFactory" type="Ecombricks\VendorAuthorization\Plugin\Model\RoleFactory" sortOrder="-100" />
+    </type>
+    <type name="Magento\Authorization\Model\ResourceModel\Role\CollectionFactory">
+        <plugin name="ecombricksVendorAuthorizationPluginModelResourceModelRoleCollectionFactory" type="Ecombricks\VendorAuthorization\Plugin\Model\ResourceModel\Role\CollectionFactory" sortOrder="-100" />
+    </type>
+</config>

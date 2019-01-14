@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_VendorConfig:etc/vendor_system_file.xsd">
+    <system>
+        <tab id="sales" enabledForVendor="true">
+            <label>Sales</label>
+        </tab>
+        <section id="sales" enabledForVendor="true">
+            <group id="general" enabledForVendor="true">
+                <field id="hide_customer_ip" enabledForVendor="true"/>
+            </group>
+            <group id="totals_sort" enabledForVendor="true">
+                <field id="discount" enabledForVendor="true"/>
+                <field id="grand_total" enabledForVendor="true"/>
+                <field id="shipping" enabledForVendor="true"/>
+                <field id="subtotal" enabledForVendor="true"/>
+                <field id="tax" enabledForVendor="true"/>
+            </group>
+            <group id="reorder" enabledForVendor="true">
+                <field id="allow" enabledForVendor="true"/>
+            </group>
+            <group id="identity" enabledForVendor="true">
+                <field id="logo" enabledForVendor="true"/>
+                <field id="logo_html" enabledForVendor="true"/>
+                <field id="address" enabledForVendor="true"/>
+            </group>
+            <group id="minimum_order" enabledForVendor="true">
+                <field id="active" enabledForVendor="true"/>
+                <field id="amount" enabledForVendor="true"/>
+                <field id="tax_including" enabledForVendor="true"/>
+                <field id="description" enabledForVendor="true"/>
+                <field id="error_message" enabledForVendor="true"/>
+                <field id="multi_address" enabledForVendor="true"/>
+                <field id="multi_address_description" enabledForVendor="true"/>
+                <field id="multi_address_error_message" enabledForVendor="true"/>
+            </group>
+        </section>
+        <section id="sales_email" enabledForVendor="true">
+            <group id="order" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="order_comment" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="invoice" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="invoice_comment" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="shipment" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="shipment_comment" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="creditmemo" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+            <group id="creditmemo_comment" enabledForVendor="true">
+                <field id="enabled" enabledForVendor="true"/>
+                <field id="template" enabledForVendor="true"/>
+                <field id="guest_template" enabledForVendor="true"/>
+                <field id="copy_to" enabledForVendor="true"/>
+                <field id="copy_method" enabledForVendor="true"/>
+            </group>
+        </section>
+        <section id="sales_pdf" enabledForVendor="true">
+            <group id="invoice" enabledForVendor="true">
+                <field id="put_order_id" enabledForVendor="true"/>
+            </group>
+            <group id="shipment" enabledForVendor="true">
+                <field id="put_order_id" enabledForVendor="true"/>
+            </group>
+            <group id="creditmemo" enabledForVendor="true">
+                <field id="put_order_id" enabledForVendor="true"/>
+            </group>
+        </section>
+    </system>
+</config>

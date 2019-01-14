@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:ecombricks:module:Ecombricks_Interception:etc/interception.xsd">
+    
+    <type name="Magento\Sales\Helper\Reorder">
+        <trait type="Ecombricks\VendorSales\Helper\Reorder\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Backend\Model\Session\Quote">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\Backend\Session\Quote\VendorTrait" sortOrder="-90" />
+    </type>
+    
+    <!-- Order Model -->
+    <type name="Magento\Sales\Model\Order">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\OrderFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_order</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_order</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\AdminOrder\Create">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\AdminOrder\Create\VendorTrait" sortOrder="-90" />
+    </type>
+    
+    <!-- Creditmemo Model -->
+    <type name="Magento\Sales\Model\Order\Creditmemo">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\CreditmemoFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Creditmemo">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_creditmemo</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Creditmemo\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_creditmemo</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Creditmemo\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Creditmemo\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Creditmemo\Order\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    
+    <!-- Invoice Model -->
+    <type name="Magento\Sales\Model\Order\Invoice">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\InvoiceFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Invoice">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_invoice</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Invoice\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_invoice</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Invoice\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Invoice\Orders\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    
+    <!-- Shipment Model -->
+    <type name="Magento\Sales\Model\Order\Shipment">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\ShipmentFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_shipment</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_shipment</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment\Order\Grid\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\ResourceModel\Grid\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    
+    <!-- Payment Transaction Model -->
+    <type name="Magento\Sales\Model\Order\Payment\Transaction">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Payment\TransactionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Payment\Transaction">
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\VendorTrait" sortOrder="-90" />
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_payment_transaction</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Payment\Transaction\Collection">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\Vendor\Framework\Model\ResourceModel\Db\Collection\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+        <property name="vendorTable" type="string">ecombricks_vendor_sales_payment_transaction</property>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Payment\Transaction\CollectionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Model\Order\Payment\TransactionFactory">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    
+    <!-- Email Sender Model -->
+    <type name="Magento\Sales\Model\Order\Email\Sender\CreditmemoCommentSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\CreditmemoCommentSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\CreditmemoSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\CreditmemoSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\InvoiceCommentSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\InvoiceCommentSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\InvoiceSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\InvoiceSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\OrderCommentSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\OrderCommentSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\OrderSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\OrderSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\ShipmentCommentSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\ShipmentCommentSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    <type name="Magento\Sales\Model\Order\Email\Sender\ShipmentSender">
+        <trait type="Ecombricks\VendorSales\Model\Order\Email\Sender\ShipmentSender\VendorTrait" sortOrder="-90" />
+        <property name="vendorScopeConfig" type="object">Magento\Framework\App\Config\ScopeConfigInterface</property>
+    </type>
+    
+    <!-- PDF Model -->
+    <type name="Magento\Sales\Model\Order\Pdf\Invoice">
+        <trait type="Ecombricks\VendorSales\Model\Order\Pdf\AbstractPdf\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\Order\Pdf\Invoice\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Sales\Model\Order\Pdf\Shipment">
+        <trait type="Ecombricks\VendorSales\Model\Order\Pdf\AbstractPdf\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\Order\Pdf\Shipment\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Sales\Model\Order\Pdf\Creditmemo">
+        <trait type="Ecombricks\VendorSales\Model\Order\Pdf\AbstractPdf\VendorTrait" sortOrder="-100" />
+        <trait type="Ecombricks\VendorSales\Model\Order\Pdf\Creditmemo\VendorTrait" sortOrder="-90" />
+    </type>
+    
+    <!-- Admin Order Controller -->
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Create">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Order\Create\VendorTrait" sortOrder="-80" />
+        <property name="vendorBackendQuoteSession" type="object">Magento\Backend\Model\Session\Quote</property>
+        <property name="vendorOrderCreateModel" type="object">Magento\Sales\Model\AdminOrder\Create</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    
+    <!-- Admin Creditmemo Controller -->
+    <type name="Magento\Sales\Controller\Adminhtml\Creditmemo\AbstractCreditmemo\Email">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Creditmemo\AbstractCreditmemo\PrintAction">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\AddComment">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\Cancel">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\NewAction">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\Save">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\UpdateQty">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\View">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\VoidAction">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    
+    <!-- Admin Invoice Controller -->
+    <type name="Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\Email">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Invoice\VendorTrait" sortOrder="-80" />
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\PrintAction">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Invoice\VendorTrait" sortOrder="-80" />
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\View">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Invoice\VendorTrait" sortOrder="-80" />
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Invoice\NewAction">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Invoice\VendorTrait" sortOrder="-80" />
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Invoice\Save">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Invoice\VendorTrait" sortOrder="-80" />
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    
+    <!-- Admin Shipment Controller -->
+    <type name="Magento\Sales\Controller\Adminhtml\Shipment\AbstractShipment\PrintAction">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Shipment\VendorTrait" sortOrder="-80" />
+        <property name="vendorShipmentRepository" type="object">Magento\Sales\Api\ShipmentRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Shipment\AbstractShipment\View">
+        <trait type="Ecombricks\VendorSales\Controller\Adminhtml\Shipment\VendorTrait" sortOrder="-80" />
+        <property name="vendorShipmentRepository" type="object">Magento\Sales\Api\ShipmentRepositoryInterface</property>
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    
+    <!-- Order Controller -->
+    <type name="Magento\Sales\Controller\AbstractController\View">
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\AbstractController\Reorder">
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\AbstractController\PrintAction">
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+    </type>
+    
+    <!-- Creditmemo Controller -->
+    <type name="Magento\Sales\Controller\AbstractController\PrintCreditmemo">
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Creditmemo\VendorTrait" sortOrder="-80" />
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+    </type>
+    
+    <!-- Invoice Controller -->
+    <type name="Magento\Sales\Controller\AbstractController\PrintInvoice">
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Invoice\VendorTrait" sortOrder="-80" />
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+    </type>
+    
+    <!-- Shipment Controller -->
+    <type name="Magento\Sales\Controller\AbstractController\PrintShipment">
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Shipment\VendorTrait" sortOrder="-80" />
+        <property name="vendorShipmentRepository" type="object">Magento\Sales\Api\ShipmentRepositoryInterface</property>
+    </type>
+    
+    <!-- Guest Order Controller -->
+    <type name="Magento\Sales\Controller\Guest\View">
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+        <property name="vendorSearchCriteriaBuilder" type="object">Magento\Framework\Api\SearchCriteriaBuilder</property>
+        <property name="vendorCookieManager" type="object">Magento\Framework\Stdlib\CookieManagerInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Guest\Reorder">
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+        <property name="vendorSearchCriteriaBuilder" type="object">Magento\Framework\Api\SearchCriteriaBuilder</property>
+        <property name="vendorCookieManager" type="object">Magento\Framework\Stdlib\CookieManagerInterface</property>
+    </type>
+    <type name="Magento\Sales\Controller\Guest\PrintAction">
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Order\VendorTrait" sortOrder="-80" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+        <property name="vendorSearchCriteriaBuilder" type="object">Magento\Framework\Api\SearchCriteriaBuilder</property>
+        <property name="vendorCookieManager" type="object">Magento\Framework\Stdlib\CookieManagerInterface</property>
+    </type>
+    
+    <!-- Guest Creditmemo Controller -->
+    <type name="Magento\Sales\Controller\Guest\PrintCreditmemo">
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Order\VendorTrait" sortOrder="-80" />
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Creditmemo\VendorTrait" sortOrder="-70" />
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Creditmemo\VendorTrait" sortOrder="-60" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+        <property name="vendorSearchCriteriaBuilder" type="object">Magento\Framework\Api\SearchCriteriaBuilder</property>
+        <property name="vendorCookieManager" type="object">Magento\Framework\Stdlib\CookieManagerInterface</property>
+        <property name="vendorCreditmemoRepository" type="object">Magento\Sales\Api\CreditmemoRepositoryInterface</property>
+    </type>
+    
+    <!-- Guest Invoice Controller -->
+    <type name="Magento\Sales\Controller\Guest\PrintInvoice">
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Order\VendorTrait" sortOrder="-80" />
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Invoice\VendorTrait" sortOrder="-70" />
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Invoice\VendorTrait" sortOrder="-60" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+        <property name="vendorSearchCriteriaBuilder" type="object">Magento\Framework\Api\SearchCriteriaBuilder</property>
+        <property name="vendorCookieManager" type="object">Magento\Framework\Stdlib\CookieManagerInterface</property>
+        <property name="vendorInvoiceRepository" type="object">Magento\Sales\Api\InvoiceRepositoryInterface</property>
+    </type>
+    
+    <!-- Guest Shipment Controller -->
+    <type name="Magento\Sales\Controller\Guest\PrintShipment">
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Order\VendorTrait" sortOrder="-80" />
+        <trait type="Ecombricks\VendorSales\Controller\AbstractController\Shipment\VendorTrait" sortOrder="-70" />
+        <trait type="Ecombricks\VendorSales\Controller\Guest\Shipment\VendorTrait" sortOrder="-60" />
+        <property name="vendorOrderRepository" type="object">Magento\Sales\Api\OrderRepositoryInterface</property>
+        <property name="vendorSearchCriteriaBuilder" type="object">Magento\Framework\Api\SearchCriteriaBuilder</property>
+        <property name="vendorCookieManager" type="object">Magento\Framework\Stdlib\CookieManagerInterface</property>
+        <property name="vendorShipmentRepository" type="object">Magento\Sales\Api\ShipmentRepositoryInterface</property>
+    </type>
+    
+    <!-- Order Block -->
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Data">
+        <trait type="Ecombricks\VendorSales\Block\Adminhtml\Order\Create\Data\VendorTrait" sortOrder="-90" />
+        <property name="vendorManagement" type="object">Ecombricks\Vendor\Model\VendorManagement</property>
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Form">
+        <trait type="Ecombricks\VendorSales\Block\Adminhtml\Order\Create\Form\VendorTrait" sortOrder="-90" />
+        <property name="vendorJsonDecoder" type="object">Magento\Framework\Json\DecoderInterface</property>
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\View\Info">
+        <trait type="Ecombricks\VendorSales\Block\Adminhtml\Order\View\Info\VendorTrait" sortOrder="-90" />
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Search\Grid">
+        <trait type="Ecombricks\Vendor\Framework\VendorTrait" sortOrder="-100" />
+    </type>
+    
+</config>

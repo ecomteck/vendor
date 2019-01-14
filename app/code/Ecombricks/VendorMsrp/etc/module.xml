@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+  * Copyright © eComBricks. All rights reserved.
+  * See LICENSE.txt for license details.
+  */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Ecombricks_VendorMsrp" setup_version="2.1.4">
+        <sequence>
+            <module name="Ecombricks_Framework"/>
+            <module name="Ecombricks_Vendor"/>
+            <module name="Ecombricks_VendorCheckout"/>
+            <module name="Magento_Msrp"/>
+        </sequence>
+    </module>
+</config>

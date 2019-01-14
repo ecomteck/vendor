@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © eComBricks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml'); ?>
+<?php if ($detailedInfoGroup) : ?>
+<div class="vendor info detailed">
+    <?php $layout = $block->getLayout(); ?>
+    <div class="vendor data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+        <?php foreach ($detailedInfoGroup as $name) : ?>
+        <?php $html = $layout->renderElement($name); ?>
+        <?php if (!trim($html)) { continue; } ?>
+        <?php $alias = $layout->getElementAlias($name); ?>
+        <?php $label = $block->getChildData($alias, 'title'); ?>
+        <div class="data item title" aria-labeledby="tab-label-<?= $alias ?>-title" data-role="collapsible" id="tab-label-<?= $alias ?>">
+            <a class="data switch" tabindex="-1" data-toggle="switch" href="#<?= $alias ?>" id="tab-label-<?= $alias ?>-title"><?= $label ?></a>
+        </div>
+        <div class="data item content" id="<?= $alias ?>" data-role="content"><?= $html ?></div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
