@@ -1,6 +1,8 @@
 # Multi-Vendor Marketplace Basic
 ###### Magento Open Source: 2.2.0 - 2.2.6
 
+Check the extension with our [demo] (https://demo.ecombricks.com/demo/).
+
 ## Introduction
 Multi-Vendor Marketplace Basic turns standard Magento installation into multi-vendor / multi-seller marketplace. The module provides the vendors functionality to create products of all types, to create and to manage orders, invoices, shipments, credit memos, transactions, to receive inquiries from customers, etc.
 
